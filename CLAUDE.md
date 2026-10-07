@@ -150,6 +150,14 @@ Voir [secrets/README.md](secrets/README.md) pour le guide complet.
 
 Claude va effectuer une veille des actualités du jour, filtrée selon mon contexte personnel (mes objectifs, mes projets), et me proposer un focus pour la journée. Cette commande utilise la skill `recherche-actualites-contextualisees`.
 
+### /commit
+
+**Objectif :** Sauvegarder l'état actuel du workspace dans Git, proprement.
+
+Claude vérifie ce qui a changé, s'assure que `.env` et aucun secret ne vont être commités, propose un message de commit clair en français, et exécute le commit après validation. Je peux passer une indication en argument (`/commit refonte prix catalogue`) pour accélérer, ou laisser Claude me demander ce qu'il faut mettre dans le message.
+
+Cette commande fait uniquement un commit local, elle ne pousse jamais sur un remote.
+
 ---
 
 ## Skills disponibles
