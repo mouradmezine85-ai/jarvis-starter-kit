@@ -1,0 +1,36 @@
+# ============================================================
+# .gitignore — Fichiers à ne JAMAIS envoyer sur Git / GitHub
+# ============================================================
+
+# Secrets et clés API (JAMAIS partager ces fichiers)
+.env
+.env.local
+.env.*.local
+secrets/*.key
+secrets/*.pem
+secrets/credentials.json
+secrets/*-token.txt
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.bak
+*~
+
+# Dossiers de dépendances / build
+node_modules/
+__pycache__/
+.venv/
+venv/
+dist/
+build/
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
