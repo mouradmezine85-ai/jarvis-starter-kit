@@ -31,7 +31,7 @@ a:hover{color:#0F0F0F}
 <!-- 1. HERO -->
 <header data-screen-label="01 Hero" style="position:relative;min-height:100svh;background:#1a1a1a;color:#fff;display:flex;flex-direction:column">
   <div style="position:absolute;inset:0">
-    <image-slot id="hero-bg" shape="rect" src="assets/modeles/patisserie-verte-noire.png" placeholder="Photo cuisine pro équipée ou rendu 3D d'un fast-food aménagé"></image-slot>
+    <image-slot id="hero-bg" shape="rect" src="assets/modeles/patisserie-verte-noire.jpg" placeholder="Photo cuisine pro équipée ou rendu 3D d'un fast-food aménagé"></image-slot>
   </div>
   <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,15,15,.7) 0%,rgba(15,15,15,.4) 45%,rgba(15,15,15,.85) 100%)"></div>
 
@@ -81,7 +81,7 @@ a:hover{color:#0F0F0F}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"></path></svg>
           </div>
           <div style="height:170px;position:relative">
-            <image-slot id="hero-3d" shape="rect" src="assets/modeles/conception-3d-avant-apres.png" placeholder="Rendu 3D d'un aménagement"></image-slot>
+            <image-slot id="hero-3d" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
           </div>
         </a>
       </div>
@@ -136,7 +136,7 @@ a:hover{color:#0F0F0F}
       </div>
     </div>
     <div style="position:relative;aspect-ratio:4/5;max-height:640px;width:100%">
-      <image-slot id="about-showroom" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.png" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
+      <image-slot id="about-showroom" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
     </div>
   </div>
 </section>
@@ -559,7 +559,7 @@ class Component extends DCLogic {
       tel: 'tel:+213' + phone.replace(/\D/g, '').replace(/^(213|0)/, ''),
       waHero: this.wa("Bonjour Ets Mezine, je veux discuter de mon projet d'aménagement."),
       waFinal: this.wa("Bonjour Ets Mezine, j'ai un projet d'aménagement et je souhaite un conseil."),
-      gallery: this.gal.map((g, i) => ({ id: 'real-' + (i + 1), src: 'assets/modeles/' + g[0] + '.png', label: g[1], open: () => this.openLb(i) })),
+      gallery: this.gal.map((g, i) => ({ id: 'real-' + (i + 1), src: 'assets/modeles/' + g[0] + '.jpg', label: g[1], open: () => this.openLb(i) })),
       brandsLoop: [].concat(this.brands, this.brands, this.brands, this.brands),
       marqRef: this.marqRef,
       pulseRef: this.pulseRef,
