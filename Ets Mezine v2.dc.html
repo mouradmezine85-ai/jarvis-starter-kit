@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js" defer></script>
+<script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -16,10 +16,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Pacifico&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js" defer></script>
+<script src="./image-slot.js"></script>
 <style>
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+html,body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+body{margin:0;min-height:100vh;background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:#1450C8;text-decoration:none}
 a:hover{color:#0F0F0F}
