@@ -1,0 +1,15 @@
+# Configuration Netlify pour le site Ets Mezine
+# Le site est dans livrables/ets-mezine/site-web/code/
+
+[build]
+  publish = "livrables/ets-mezine/site-web/code"
+
+[[redirects]]
+  from = "/"
+  to = "/Ets Mezine v2.dc.html"
+  status = 200
+
+[[headers]]
+  for = "/*.dc.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
