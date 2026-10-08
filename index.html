@@ -629,5 +629,8 @@ class Component extends DCLogic {
   }
 }
 </script>
+<script>
+(function(){function convert(){document.querySelectorAll('img').forEach(function(img){if(img.closest('a')||img.closest('button')||img.dataset.converted)return;var div=document.createElement('div');var s=getComputedStyle(img);div.style.cssText='position:'+s.position+';inset:0;width:'+s.width+';height:'+s.height+';display:block;background-image:url("'+img.src+'");background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none;touch-action:pan-y';if(img.getAttribute('style'))div.setAttribute('style',img.getAttribute('style').replace(/object-fit:[^;]+;?/,'')+';background-image:url("'+img.src+'");background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none;touch-action:pan-y');div.dataset.converted='1';img.parentNode.replaceChild(div,img);});}window.addEventListener('load',function(){setTimeout(convert,100);setTimeout(convert,500);setTimeout(convert,1500);setTimeout(convert,3000);});})();
+</script>
 </body>
 </html>
