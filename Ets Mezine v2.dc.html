@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="./support.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Pacifico&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<script src="./image-slot.js" defer></script>
 <style>
 html{scroll-behavior:smooth}
 body{margin:0;background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
@@ -24,6 +24,7 @@ body{margin:0;background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-
 a{color:#1450C8;text-decoration:none}
 a:hover{color:#0F0F0F}
 </style>
+<link rel="preload" as="image" href="assets/modeles/patisserie-verte-noire.jpg" fetchpriority="high">
 </helmet>
 
 <div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#0F0F0F;background:#fff;overflow-x:hidden">
@@ -42,7 +43,7 @@ a:hover{color:#0F0F0F}
     <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
       <div style="pointer-events:auto;display:flex;gap:36px;font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">
         <a href="#parcours" style="color:#fff">Parcours</a>
-        <a href="#realisations" style="color:#fff">Réalisations</a>
+        <a href="#realisations" style="color:#fff">Modèles</a>
         <a href="#difference" style="color:#fff">Pourquoi nous</a>
         <a href="#faq" style="color:#fff">FAQ</a>
       </div>
@@ -68,7 +69,7 @@ a:hover{color:#0F0F0F}
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.160-3.48-8.41"></path></svg>
           <span>Discuter sur WhatsApp</span>
         </a>
-        <a href="#realisations" style="display:flex;align-items:center;height:60px;padding:0 28px;border-radius:999px;border:1px solid rgba(255,255,255,.55);color:#fff;font-weight:600;font-size:17px;transition:background .2s" style-hover="background:rgba(255,255,255,.12);color:#fff">Voir nos réalisations</a>
+        <a href="#realisations" style="display:flex;align-items:center;height:60px;padding:0 28px;border-radius:999px;border:1px solid rgba(255,255,255,.55);color:#fff;font-weight:600;font-size:17px;transition:background .2s" style-hover="background:rgba(255,255,255,.12);color:#fff">Voir nos modèles</a>
       </div>
     </div>
 
@@ -81,7 +82,7 @@ a:hover{color:#0F0F0F}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"></path></svg>
           </div>
           <div style="height:170px;position:relative">
-            <image-slot id="hero-3d" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
+            <image-slot id="hero-3d" loading="lazy" decoding="async" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
           </div>
         </a>
       </div>
@@ -136,7 +137,7 @@ a:hover{color:#0F0F0F}
       </div>
     </div>
     <div style="position:relative;aspect-ratio:4/5;max-height:640px;width:100%">
-      <image-slot id="about-showroom" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
+      <image-slot id="about-showroom" loading="lazy" decoding="async" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
     </div>
   </div>
 </section>
@@ -184,11 +185,11 @@ a:hover{color:#0F0F0F}
 </section>
 
 <!-- 5. REALISATIONS -->
-<section id="realisations" data-screen-label="05 Réalisations" style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
+<section id="realisations" data-screen-label="05 Modèles" style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
   <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
     <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
       <div style="display:flex;flex-direction:column;gap:24px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Nos réalisations</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Nos modèles</div>
         <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(36px,5vw,72px);line-height:.98;letter-spacing:-.045em;max-width:16ch;text-wrap:balance">Nos aménagements, partout en Algérie.</h2>
       </div>
       <p style="margin:0;font-size:16px;color:#6B6B6B">Cliquez sur une photo pour l'agrandir.</p>
@@ -196,7 +197,7 @@ a:hover{color:#0F0F0F}
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px">
       <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="12">
         <figure style="margin:0;position:relative;aspect-ratio:4/3;background:#F0F0F0;overflow:hidden">
-          <image-slot id="{{ g.id }}" src="{{ g.src }}" shape="rect" placeholder="Photo réalisation ou rendu 3D"></image-slot>
+          <image-slot id="{{ g.id }}" loading="lazy" decoding="async" src="{{ g.src }}" shape="rect" placeholder="Photo modèle ou rendu 3D"></image-slot>
           <figcaption style="position:absolute;left:12px;bottom:12px;pointer-events:none;background:#fff;color:#0F0F0F;font-size:13px;font-weight:600;padding:6px 10px">{{ g.label }}</figcaption>
           <button onClick="{{ g.open }}" aria-label="Agrandir" style="position:absolute;top:12px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(15,15,15,.75);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s" style-hover="background:#1450C8">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"></path></svg>
