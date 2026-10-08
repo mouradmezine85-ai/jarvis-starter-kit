@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){var o=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(t,l,p){if(typeof t==="string"&&t.indexOf("touch")===0||t==="wheel"||t==="mousewheel"){if(typeof p==="object"&&p!==null)p.passive=true;else p={passive:true,capture:!!p};}return o.call(this,t,l,p);};})();
+</script>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="./support.js"></script>
