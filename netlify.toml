@@ -4,12 +4,26 @@
 [build]
   publish = "livrables/ets-mezine/site-web/code"
 
+[[redirects]]
+  from = "/"
+  to = "/Ets Mezine v2.dc.html"
+  status = 200
+
+[[headers]]
+  for = "/*.dc.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache long pour les assets (images, JS)
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/index.html"
+  for = "/*.js"
   [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Compression Brotli / Gzip activee par Netlify sur HTML/CSS/JS/SVG automatiquement
