@@ -1,636 +1,475 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style id="scroll-fix-mobile">
-html{-webkit-overflow-scrolling:touch;overflow-y:scroll;overflow-x:hidden;height:100%;touch-action:pan-y}
-body{margin:0;height:auto;min-height:100%;overflow:visible;touch-action:pan-y}
-x-dc,helmet{display:block}
-helmet{display:none}
-*{touch-action:pan-y!important}
-img{touch-action:pan-y!important;-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;pointer-events:none!important}
-a,button,input,select,textarea,label,[role=button],iframe{pointer-events:auto!important}
-</style>
-<script>
-(function(){var o=EventTarget.prototype.addEventListener;EventTarget.prototype.addEventListener=function(t,l,p){if(typeof t==="string"&&t.indexOf("touch")===0||t==="wheel"||t==="mousewheel"){if(typeof p==="object"&&p!==null)p.passive=true;else p={passive:true,capture:!!p};}return o.call(this,t,l,p);};})();
-</script>
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
-<title>Ets Mezine - Aménagement complet fast-food, restaurant, pâtisserie en Algérie</title>
-<meta name="description" content="Spécialiste de l'aménagement professionnel clé en main en Algérie. Conception 3D offerte. Matériel pro importé. SAV garanti. Livraison 58 wilayas.">
-<!-- PIXEL META (Facebook Ads) : coller ici le code du pixel -->
-<!-- GOOGLE ANALYTICS 4 : coller ici la balise gtag.js (G-XXXXXXXXXX) -->
-<!-- WHATSAPP BUSINESS API TRACKER : coller ici le script de suivi si disponible -->
+<title>Ets Mezine - Amenagement complet fast-food, restaurant, patisserie en Algerie</title>
+<meta name="description" content="Specialiste de l'amenagement professionnel cle en main en Algerie. Conception 3D offerte. Materiel pro importe. SAV garanti. Livraison 58 wilayas. 20 ans d'experience.">
+<meta name="theme-color" content="#0F0F0F">
+<link rel="icon" type="image/png" href="assets/logo-ets-mezine.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;family=Pacifico&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/modeles/patisserie-verte-noire.jpg" fetchpriority="high">
 <style>
-html{scroll-behavior:smooth}
-html{overflow-x:hidden;overflow-y:scroll;-webkit-overflow-scrolling:touch;height:100%}
-body{margin:0;height:auto;min-height:100%;overflow:visible}
-body{background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-*{touch-action:pan-y!important}
-x-dc,helmet{display:block}
-helmet{display:none}
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Hanken Grotesk',system-ui,sans-serif;color:#0F0F0F;background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
 a{color:#1450C8;text-decoration:none}
 a:hover{color:#0F0F0F}
-@media (max-width:768px){
-  html{scroll-behavior:auto}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{animation:none!important;transition:none!important}
-}
+button{font:inherit;cursor:pointer;border:0;background:none}
+ul{list-style:none}
+.wrap{max-width:1280px;margin:0 auto}
+.pad{padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.tag{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B}
+.tag::before{content:'';width:8px;height:8px;background:#1450C8;display:block}
+.h-big{font-family:'Archivo',sans-serif;font-weight:600;letter-spacing:-.045em;line-height:.95;margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;height:60px;padding:0 30px;border-radius:999px;font-weight:700;font-size:17px;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.btn-wa{background:#25D366;color:#0F0F0F;outline:1px solid rgba(37,211,102,.75);outline-offset:5px;box-shadow:0 10px 30px rgba(37,211,102,.25)}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(37,211,102,.35);color:#0F0F0F}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+.btn-outline:hover{background:rgba(255,255,255,.12);color:#fff}
+@media(max-width:768px){html{scroll-behavior:auto}}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;color:#fff;display:flex;flex-direction:column;background:#1a1a1a}
+.hero-bg{position:absolute;inset:0;background:url('assets/modeles/patisserie-verte-noire.jpg') center/cover no-repeat;z-index:0}
+.hero-overlay{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,15,15,.7) 0%,rgba(15,15,15,.4) 45%,rgba(15,15,15,.85) 100%);z-index:1}
+.hero-nav{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(20px,5vw,64px)}
+.hero-nav .logo{display:flex;align-items:center;gap:12px}
+.hero-nav .logo img{width:60px;height:60px;border-radius:50%}
+.hero-nav .menu{display:none;gap:36px;font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.hero-nav .menu a{color:#fff}
+@media(min-width:1024px){.hero-nav .menu{display:flex}}
+.hero-nav .right{display:flex;align-items:center;gap:16px}
+.nav-wa{display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,border-color .2s}
+.nav-wa:hover{background:#25D366;border-color:#25D366;color:#0F0F0F}
+.hero-main{position:relative;z-index:2;flex:1;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:40px;padding:clamp(32px,7vh,96px) clamp(20px,5vw,64px) 40px}
+.hero-body{display:flex;flex-direction:column;gap:28px;flex:1 1 480px;min-width:0;max-width:980px}
+.hero-eyebrow{font-size:14px;color:rgba(255,255,255,.78);letter-spacing:.02em}
+.hero h1{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,7vw,100px);line-height:.95;letter-spacing:-.045em;max-width:14ch;text-wrap:balance;margin:0}
+.hero-sub{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgba(255,255,255,.9);max-width:46ch;margin:0}
+.hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.hero-3d{display:flex;flex:1 1 100%;flex-direction:column;gap:14px;background:#fff;color:#0F0F0F;padding:18px;transition:transform .25s;align-self:flex-start;text-decoration:none;max-width:100%}
+@media(min-width:1024px){.hero-3d{flex:0 0 280px;align-self:flex-end;max-width:280px}}
+.hero-3d:hover{transform:translateY(-4px);color:#0F0F0F}
+.hero-3d-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;font-size:16px}
+.hero-3d-img{height:170px;background:url('assets/modeles/conception-3d-avant-apres.jpg') center/cover no-repeat}
+.hero-footer-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding:0 clamp(20px,5vw,64px) clamp(28px,5vh,56px)}
+.hero-footer-row p{margin:0;flex:1 1 420px;font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,36px);line-height:1.15;letter-spacing:-.025em;max-width:22ch}
+.hero-sav{display:flex;align-items:center;gap:28px}
+.hero-sav .sep{width:1px;height:72px;background:rgba(255,255,255,.35)}
+.hero-sav .num{font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(40px,4.4vw,60px);line-height:1;letter-spacing:-.04em;display:block}
+.hero-sav .lab{font-size:15px;color:rgba(255,255,255,.85);display:block;margin-top:6px}
+
+/* REASSURANCE */
+.reassurance{border-bottom:1px solid #E8E8E8;padding:0 clamp(20px,5vw,64px)}
+.reassurance .grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.reassurance .item{display:flex;align-items:center;gap:16px;padding:28px 8px}
+.reassurance .item span{font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em}
+
+/* QUI SOMMES-NOUS */
+.about{padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.about .grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center}
+.about .text{display:flex;flex-direction:column;gap:28px}
+.about h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.04em;text-wrap:balance;margin:0}
+.about p{font-size:clamp(18px,1.5vw,21px);line-height:1.6;color:#3A3A3A;max-width:52ch;margin:0}
+.about .pills{display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px;font-weight:600}
+.about-img{position:relative;aspect-ratio:4/5;max-height:640px;width:100%;background:url('assets/modeles/patisserie-boulangerie-luxe.jpg') center/cover no-repeat}
+
+/* PARCOURS */
+.parcours{background:#F5F5F5;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.parcours .wrap{display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)}
+.parcours-head{display:flex;flex-direction:column;gap:24px}
+.parcours h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em;margin:0}
+.parcours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid #0F0F0F}
+.parcours-step{display:flex;flex-direction:column;gap:20px;padding:32px 28px 32px 0}
+.parcours-step .num{font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:#1450C8}
+.parcours-step h3{font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;text-transform:uppercase;margin:0}
+.parcours-step p{font-size:16px;line-height:1.5;color:#4A4A4A;margin:0}
+
+/* MODELES */
+.modeles{padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.modeles .wrap{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)}
+.modeles-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.modeles-head .left{display:flex;flex-direction:column;gap:24px}
+.modeles-head h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(36px,5vw,72px);line-height:.98;letter-spacing:-.045em;max-width:16ch;text-wrap:balance;margin:0}
+.modeles-head p{font-size:16px;color:#6B6B6B;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px}
+.gallery-item{position:relative;aspect-ratio:4/3;background-color:#F0F0F0;background-size:cover;background-position:center;background-repeat:no-repeat;overflow:hidden}
+.gallery-item figcaption{position:absolute;left:12px;bottom:12px;background:#fff;color:#0F0F0F;font-size:13px;font-weight:600;padding:6px 10px}
+
+/* DIFFERENCE */
+.difference{background:#0A1A3A;color:#fff;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.difference .wrap{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)}
+.difference .head{display:flex;flex-direction:column;gap:24px}
+.difference .tag{color:#A0A0A0}
+.difference h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em;margin:0}
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px}
+.diff-col{padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:28px}
+.diff-col.them{border:1px solid rgba(255,255,255,.16)}
+.diff-col.us{background:#fff;color:#0F0F0F}
+.diff-col h3{font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;text-transform:uppercase;letter-spacing:.02em;margin:0}
+.diff-col.them h3{color:#A0A0A0}
+.diff-col ul{display:flex;flex-direction:column;font-size:17px;line-height:1.45;margin:0;padding:0}
+.diff-col li{display:flex;gap:14px;padding:18px 0}
+.diff-col.them li{border-top:1px solid rgba(255,255,255,.1);color:#B5B5B5}
+.diff-col.us li{border-top:1px solid #EAEAEA;font-weight:500}
+.diff-col .us-head{display:flex;align-items:center;gap:14px}
+.diff-col .us-head img{width:40px;height:40px;border-radius:50%}
+
+/* TEMOIGNAGES */
+.temo{background:#F5F5F5;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.temo .wrap{display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)}
+.temo .head{display:flex;flex-direction:column;gap:24px}
+.temo h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em;margin:0}
+.temo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}
+.temo-card{background:#fff;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.temo-card blockquote{font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em;text-wrap:pretty;margin:0}
+.temo-card figcaption{display:flex;align-items:center;gap:14px}
+.temo-card .avatar{width:48px;height:48px;border-radius:50%;background:#0F0F0F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none}
+.temo-card .avatar.blue{background:#1450C8}
+.temo-card .meta{display:flex;flex-direction:column;gap:2px}
+.temo-card .meta strong{font-size:16px}
+.temo-card .meta span{font-size:14px;color:#6B6B6B}
+
+/* FAQ */
+.faq{padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)}
+.faq .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,96px);align-items:start}
+.faq .head{display:flex;flex-direction:column;gap:24px}
+.faq h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.045em;margin:0}
+.faq .head p{font-size:17px;line-height:1.55;color:#3A3A3A;max-width:34ch;margin:0}
+.faq .head a{color:#0F0F0F;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#1450C8}
+.faq-list{display:flex;flex-direction:column;border-top:1px solid #0F0F0F}
+.faq-item{border-bottom:1px solid #DADADA}
+.faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400;transition:transform .2s}
+.faq-item[open] summary::after{content:'-';transform:none}
+.faq-item .answer{padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A}
+
+/* CTA FINAL */
+.cta-final{background:#0A1A3A;color:#fff;min-height:80svh;display:flex;align-items:center;justify-content:center;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px);text-align:center}
+.cta-final-inner{display:flex;flex-direction:column;align-items:center;gap:32px;max-width:1000px}
+.cta-final h2{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(48px,8vw,120px);line-height:.92;letter-spacing:-.05em;text-wrap:balance;margin:0}
+.cta-final p{font-size:clamp(18px,1.6vw,22px);line-height:1.5;max-width:44ch;color:rgba(255,255,255,.85);margin:0}
+.cta-final .btn{height:68px;padding:0 36px;font-size:19px;outline:2px solid #fff;outline-offset:6px;box-shadow:0 18px 40px rgba(0,0,0,.3)}
+
+/* FOOTER */
+.footer{background:#0F0F0F;color:#fff;padding:clamp(56px,7vw,96px) clamp(20px,5vw,64px) 32px}
+.footer .wrap{display:flex;flex-direction:column;gap:56px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px}
+.footer-col{display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5}
+.footer-col img{width:96px;height:96px;border-radius:50%}
+.footer-col .label{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A}
+.footer-col p{color:#B5B5B5;max-width:30ch;margin:0}
+.footer-col a{color:#fff}
+.footer-col a:hover{color:#6E9BFF}
+.footer-col a.wa{color:#25D366}
+.footer-map{width:100%;height:clamp(240px,30vw,360px);background:#1C1C1C;position:relative}
+.footer-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)}
+.footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#8A8A8A}
+
+/* WHATSAPP FLOTTANT */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:50;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .2s}
+.wa-float:hover{transform:scale(1.06);color:#fff}
 </style>
-<link rel="preload" as="image" href="assets/modeles/patisserie-verte-noire.jpg" fetchpriority="high">
-</helmet>
+</head>
+<body>
 
-<div style="font-family:'Hanken Grotesk',system-ui,sans-serif;color:#0F0F0F;background:#fff;overflow-x:hidden">
-
-<!-- 1. HERO -->
-<header data-screen-label="01 Hero" style="position:relative;min-height:100svh;background:#1a1a1a;color:#fff;display:flex;flex-direction:column">
-  <div style="position:absolute;inset:0">
-    <image-slot id="hero-bg" shape="rect" src="assets/modeles/patisserie-verte-noire.jpg" placeholder="Photo cuisine pro équipée ou rendu 3D d'un fast-food aménagé"></image-slot>
-  </div>
-  <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(15,15,15,.7) 0%,rgba(15,15,15,.4) 45%,rgba(15,15,15,.85) 100%)"></div>
-
-  <nav style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(20px,5vw,64px);pointer-events:none">
-    <a href="#" aria-label="Ets Mezine" style="pointer-events:auto;display:flex;align-items:center;gap:12px;color:#fff">
-      <img src="assets/logo-ets-mezine.png" alt="Ets Mezine" style="width:60px;height:60px;border-radius:50%;display:block">
-    </a>
-    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-      <div style="pointer-events:auto;display:flex;gap:36px;font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase">
-        <a href="#parcours" style="color:#fff">Parcours</a>
-        <a href="#realisations" style="color:#fff">Modèles</a>
-        <a href="#difference" style="color:#fff">Pourquoi nous</a>
-        <a href="#faq" style="color:#fff">FAQ</a>
-      </div>
-    </sc-if>
-    <div style="pointer-events:auto;display:flex;align-items:center;gap:16px">
-      <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-        <a href="{{ tel }}" style="color:#fff;font-weight:600;font-size:15px">{{ phone }}</a>
-      </sc-if>
-      <a href="{{ waHero }}" target="_blank" rel="noopener" aria-label="WhatsApp" style="display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,border-color .2s" style-hover="background:#25D366;border-color:#25D366;color:#0F0F0F">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"></path></svg>
-        <span>WhatsApp</span>
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <nav class="hero-nav">
+    <a class="logo" href="#"><img src="assets/logo-ets-mezine.png" alt="Ets Mezine"></a>
+    <div class="menu">
+      <a href="#parcours">Parcours</a>
+      <a href="#modeles">Modèles</a>
+      <a href="#difference">Pourquoi nous</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="right">
+      <a class="nav-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20discuter%20de%20mon%20projet%20d%27am%C3%A9nagement." target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
+        WhatsApp
       </a>
     </div>
   </nav>
 
-  <div style="position:relative;flex:1;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:40px;padding:clamp(32px,7vh,96px) clamp(20px,5vw,64px) 40px;pointer-events:none">
-    <div style="flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:28px;max-width:980px">
-      <div style="font-size:14px;color:rgba(255,255,255,.78);letter-spacing:.02em">Showroom à Tizi Ouzou. Livraison dans les 58 wilayas.</div>
-      <h1 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,7vw,100px);line-height:.95;letter-spacing:-.045em;max-width:14ch;text-wrap:balance">Votre fast-food, restaurant ou pâtisserie, livré clé en main.</h1>
-      <p style="margin:0;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgba(255,255,255,.9);max-width:46ch;text-wrap:pretty">Conception 3D offerte. Matériel pro importé. SAV garanti. Aux côtés des entrepreneurs algériens.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:8px;pointer-events:auto">
-        <a href="{{ waHero }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;height:60px;padding:0 30px;border-radius:999px;background:#25D366;color:#0F0F0F;font-weight:700;font-size:17px;outline:1px solid rgba(37,211,102,.75);outline-offset:5px;box-shadow:0 10px 30px rgba(37,211,102,.25);transition:transform .2s,box-shadow .2s" style-hover="transform:translateY(-2px);box-shadow:0 16px 36px rgba(37,211,102,.35);color:#0F0F0F">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.160-3.48-8.41"></path></svg>
+  <div class="hero-main">
+    <div class="hero-body">
+      <div class="hero-eyebrow">Showroom à Tizi Ouzou. Livraison dans les 58 wilayas.</div>
+      <h1>Votre fast-food, restaurant ou pâtisserie, livré clé en main.</h1>
+      <p class="hero-sub">Conception 3D offerte. Matériel pro importé. SAV garanti. Aux côtés des entrepreneurs algériens.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20discuter%20de%20mon%20projet%20d%27am%C3%A9nagement." target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
           <span>Discuter sur WhatsApp</span>
         </a>
-        <a href="#realisations" style="display:flex;align-items:center;height:60px;padding:0 28px;border-radius:999px;border:1px solid rgba(255,255,255,.55);color:#fff;font-weight:600;font-size:17px;transition:background .2s" style-hover="background:rgba(255,255,255,.12);color:#fff">Voir nos modèles</a>
+        <a class="btn btn-outline" href="#modeles">Voir nos modèles</a>
       </div>
     </div>
-
-    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-      <div style="flex:0 0 280px;display:flex;flex-direction:column;justify-content:space-between;align-self:stretch;gap:40px">
-        <div></div>
-        <a href="{{ waHero }}" target="_blank" rel="noopener" style="pointer-events:auto;display:flex;flex-direction:column;gap:14px;background:#fff;color:#0F0F0F;padding:18px;transition:transform .25s" style-hover="transform:translateY(-4px);color:#0F0F0F">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-            <span style="font-weight:600;font-size:16px">Conception 3D offerte</span>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"></path></svg>
-          </div>
-          <div style="height:170px;position:relative">
-            <image-slot id="hero-3d" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
-          </div>
-        </a>
+    <a class="hero-3d" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20une%20conception%203D%20offerte." target="_blank" rel="noopener">
+      <div class="hero-3d-top">
+        <span>Conception 3D offerte</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg>
       </div>
-    </sc-if>
+      <div class="hero-3d-img"></div>
+    </a>
   </div>
 
-  <div style="position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding:0 clamp(20px,5vw,64px) clamp(28px,5vh,56px);pointer-events:none">
-    <p style="margin:0;flex:1 1 420px;font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,36px);line-height:1.15;letter-spacing:-.025em;max-width:22ch">Un seul interlocuteur, du devis à la mise en service.</p>
-    <div style="display:flex;align-items:center;gap:28px">
-      <span style="width:1px;height:72px;background:rgba(255,255,255,.35);display:block"></span>
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <span style="font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(40px,4.4vw,60px);line-height:1;letter-spacing:-.04em">48h</span>
-        <span style="font-size:15px;color:rgba(255,255,255,.85)">intervention SAV Frimez</span>
+  <div class="hero-footer-row">
+    <p>Un seul interlocuteur, du devis à la mise en service.</p>
+    <div class="hero-sav">
+      <span class="sep"></span>
+      <div>
+        <span class="num">48h</span>
+        <span class="lab">intervention SAV Frimez</span>
       </div>
     </div>
   </div>
 </header>
 
-<!-- 2. REASSURANCE -->
-<section data-screen-label="02 Réassurance" style="border-bottom:1px solid #E8E8E8;padding:0 clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))">
-    <div style="display:flex;align-items:center;gap:16px;padding:28px 8px">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"></path><path d="M9 21v-7h6v7"></path></svg>
-      <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em">Import direct</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:28px 8px">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9.5h4.5L22 13v3h-8"></path><circle cx="6.5" cy="18" r="2"></circle><circle cx="17.5" cy="18" r="2"></circle></svg>
-      <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em">Livraison 58 wilayas</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:28px 8px">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.6-.6-.6-2.6z"></path></svg>
-      <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em">SAV garanti Frimez</span>
-    </div>
-    <div style="display:flex;align-items:center;gap:16px;padding:28px 8px">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"></path><path d="M3 7l9 5 9-5M12 12v10"></path></svg>
-      <span style="font-family:'Archivo',sans-serif;font-weight:600;font-size:18px;letter-spacing:-.01em">Conception 3D offerte</span>
-    </div>
+<section class="reassurance">
+  <div class="grid">
+    <div class="item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-7h6v7"/></svg><span>Import direct</span></div>
+    <div class="item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9.5h4.5L22 13v3h-8"/><circle cx="6.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg><span>Livraison 58 wilayas</span></div>
+    <div class="item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/></svg><span>SAV garanti Frimez</span></div>
+    <div class="item"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg><span>Conception 3D offerte</span></div>
   </div>
 </section>
 
-<!-- 3. QUI SOMMES-NOUS -->
-<section data-screen-label="03 Qui sommes-nous" style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div data-reveal="" style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
-    <div style="display:flex;flex-direction:column;gap:28px">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Qui sommes-nous</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(34px,4.4vw,60px);line-height:1;letter-spacing:-.04em;text-wrap:balance">Une entreprise familiale.</h2>
-      <p style="margin:0;font-size:clamp(18px,1.5vw,21px);line-height:1.6;color:#3A3A3A;max-width:52ch;text-wrap:pretty">Ets Mezine équipe les professionnels de la restauration en Algérie. De la cuisine du fast-food de quartier aux grandes brigades hôtelières, nous importons, concevons et installons. Un seul interlocuteur, du devis à la mise en service.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px;font-weight:600">
+<section class="about">
+  <div class="grid">
+    <div class="text">
+      <div class="tag">Qui sommes-nous</div>
+      <h2>Une entreprise familiale.</h2>
+      <p>Ets Mezine équipe les professionnels de la restauration en Algérie. De la cuisine du fast-food de quartier aux grandes brigades hôtelières, nous importons, concevons et installons. Un seul interlocuteur, du devis à la mise en service.</p>
+      <div class="pills">
         <span>Matériel restauration professionnel</span>
         <span>Comptoir inox sur mesure</span>
         <span>Mobilier inox et bois</span>
       </div>
     </div>
-    <div style="position:relative;aspect-ratio:4/5;max-height:640px;width:100%">
-      <image-slot id="about-showroom" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
-    </div>
+    <div class="about-img" role="img" aria-label="Showroom Ets Mezine"></div>
   </div>
 </section>
 
-<!-- 4. PARCOURS -->
-<section id="parcours" data-screen-label="04 Parcours" style="background:#F5F5F5;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,72px)">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Comment ça se passe</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em">4 étapes,<br>un seul interlocuteur</h2>
+<section id="parcours" class="parcours">
+  <div class="wrap">
+    <div class="parcours-head">
+      <div class="tag">Comment ça se passe</div>
+      <h2>4 étapes,<br>un seul interlocuteur</h2>
     </div>
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));border-top:1px solid #0F0F0F">
-      <div style="display:flex;flex-direction:column;gap:20px;padding:32px 28px 32px 0">
-        <span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:#1450C8">01</span>
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"></path></svg>
-        <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;text-transform:uppercase">Vous nous contactez</h3>
-        <p style="margin:0;font-size:16px;line-height:1.5;color:#4A4A4A">Sur WhatsApp, en français ou en darija.</p>
+    <div class="parcours-grid">
+      <div class="parcours-step">
+        <span class="num">01</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+        <h3>Vous nous contactez</h3>
+        <p>Sur WhatsApp, en français ou en darija.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:20px;padding:32px 28px 32px 0">
-        <span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:#1450C8">02</span>
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"></path><path d="M3 7l9 5 9-5M12 12v10"></path></svg>
-        <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;text-transform:uppercase">On conçoit votre aménagement</h3>
-        <p style="margin:0;font-size:16px;line-height:1.5;color:#4A4A4A">En 3D, offert.</p>
+      <div class="parcours-step">
+        <span class="num">02</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2 21 7v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg>
+        <h3>On conçoit votre aménagement</h3>
+        <p>En 3D, offert.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:20px;padding:32px 28px 32px 0">
-        <span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:#1450C8">03</span>
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9.5h4.5L22 13v3h-8"></path><circle cx="6.5" cy="18" r="2"></circle><circle cx="17.5" cy="18" r="2"></circle></svg>
-        <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;text-transform:uppercase">On vous livre et installe</h3>
-        <p style="margin:0;font-size:16px;line-height:1.5;color:#4A4A4A">Partout en Algérie.</p>
+      <div class="parcours-step">
+        <span class="num">03</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9.5h4.5L22 13v3h-8"/><circle cx="6.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>
+        <h3>On vous livre et installe</h3>
+        <p>Partout en Algérie.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:20px;padding:32px 28px 32px 0">
-        <span style="font-family:'Archivo',sans-serif;font-size:15px;font-weight:600;color:#1450C8">04</span>
-        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.6-.6-.6-2.6z"></path></svg>
-        <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em;text-transform:uppercase">On vous suit après la livraison</h3>
-        <p style="margin:0;font-size:16px;line-height:1.5;color:#4A4A4A">Avec le SAV Frimez.</p>
+      <div class="parcours-step">
+        <span class="num">04</span>
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0F0F0F" stroke-width="1.5" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.1L3 17.7 6.3 21l6.3-6.3a4 4 0 0 0 5.1-5.4l-2.5 2.5-2.6-.6-.6-2.6z"/></svg>
+        <h3>On vous suit après la livraison</h3>
+        <p>Avec le SAV Frimez.</p>
       </div>
     </div>
-    <div data-reveal="" style="display:flex">
-      <a href="{{ waHero }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;height:60px;padding:0 30px;border-radius:999px;background:#25D366;color:#0F0F0F;font-weight:700;font-size:17px;outline:1px solid rgba(37,211,102,.7);outline-offset:5px;box-shadow:0 10px 30px rgba(37,211,102,.22);transition:transform .2s" style-hover="transform:translateY(-2px);color:#0F0F0F">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.880 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"></path></svg>
+    <div>
+      <a class="btn btn-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20lancer%20mon%20projet." target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
         Lancer mon projet sur WhatsApp
       </a>
     </div>
   </div>
 </section>
 
-<!-- 5. REALISATIONS -->
-<section id="realisations" data-screen-label="05 Modèles" style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
-      <div style="display:flex;flex-direction:column;gap:24px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Nos modèles</div>
-        <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(36px,5vw,72px);line-height:.98;letter-spacing:-.045em;max-width:16ch;text-wrap:balance">Nos modèles.</h2>
+<section id="modeles" class="modeles">
+  <div class="wrap">
+    <div class="modeles-head">
+      <div class="left">
+        <div class="tag">Nos modèles</div>
+        <h2>Nos modèles.</h2>
       </div>
-      <p style="margin:0;font-size:16px;color:#6B6B6B">Cliquez sur une photo pour l'agrandir.</p>
+      <p>Nos realisations recentes.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px">
-      <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="12">
-        <figure style="margin:0;position:relative;aspect-ratio:4/3;background:#F0F0F0;overflow:hidden">
-          <image-slot id="{{ g.id }}" src="{{ g.src }}" shape="rect" placeholder="Photo modèle ou rendu 3D"></image-slot>
-          <figcaption style="position:absolute;left:12px;bottom:12px;pointer-events:none;background:#fff;color:#0F0F0F;font-size:13px;font-weight:600;padding:6px 10px">{{ g.label }}</figcaption>
-          <button onClick="{{ g.open }}" aria-label="Agrandir" style="position:absolute;top:12px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(15,15,15,.75);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s" style-hover="background:#1450C8">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"></path></svg>
-          </button>
-        </figure>
-      </sc-for>
+    <div class="gallery">
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-doree.jpg')"><figcaption>Pâtisserie dorée</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/fast-food.jpg')"><figcaption>Fast-food</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-vitrines-blanches.jpg')"><figcaption>Vitrines blanches</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/snack-comptoir-u.jpg')"><figcaption>Snack comptoir U</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/cafe-comptoir.jpg')"><figcaption>Café comptoir</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-orientale.jpg')"><figcaption>Pâtisserie orientale</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-comptoir-bois.jpg')"><figcaption>Comptoir bois</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/boulangerie-bois.jpg')"><figcaption>Boulangerie bois</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-traditionnelle.jpg')"><figcaption>Traditionnelle</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/boulangerie-comptoir-blanc.jpg')"><figcaption>Boulangerie blanche</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-salon-de-the.jpg')"><figcaption>Salon de thé</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/rendu-3d-boulangerie.jpg')"><figcaption>Rendu 3D boulangerie</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/conception-3d-avant-apres.jpg')"><figcaption>Conception 3D</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-boulangerie-luxe.jpg')"><figcaption>Boulangerie luxe</figcaption></figure>
+      <figure class="gallery-item" style="background-image:url('assets/modeles/patisserie-verte-noire.jpg')"><figcaption>Verte & noire</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- 6. DIFFERENCE -->
-<section id="difference" data-screen-label="06 Différence" style="background:#0A1A3A;color:#fff;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#A0A0A0"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Pourquoi nous</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em">Ce qui nous rend<br>différents</h2>
+<section id="difference" class="difference">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Pourquoi nous</div>
+      <h2>Ce qui nous rend<br>différents</h2>
     </div>
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px">
-      <div style="border:1px solid rgba(255,255,255,.16);padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:28px">
-        <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:22px;color:#A0A0A0;text-transform:uppercase;letter-spacing:.02em">Les autres</h3>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;font-size:17px;line-height:1.45;color:#B5B5B5">
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"></path></svg>Un fournisseur par équipement, vous gérez tout</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"></path></svg>SAV introuvable après la vente</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"></path></svg>Pas de conception 3D</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"></path></svg>Pas de mobilier sur mesure</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"></path></svg>Délais flous, pas d'engagement</li>
+    <div class="diff-grid">
+      <div class="diff-col them">
+        <h3>Les autres</h3>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"/></svg>Un fournisseur par équipement, vous gérez tout</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"/></svg>SAV introuvable après la vente</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"/></svg>Pas de conception 3D</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"/></svg>Pas de mobilier sur mesure</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#777" stroke-width="2" style="flex:none;margin-top:2px"><path d="M6 6l12 12M18 6 6 18"/></svg>Délais flous, pas d'engagement</li>
         </ul>
       </div>
-      <div style="background:#fff;color:#0F0F0F;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:28px">
-        <div style="display:flex;align-items:center;gap:14px">
-          <img src="assets/logo-ets-mezine.png" alt="" style="width:40px;height:40px;border-radius:50%;display:block">
-          <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em">Ets Mezine</h3>
+      <div class="diff-col us">
+        <div class="us-head">
+          <img src="assets/logo-ets-mezine.png" alt="">
+          <h3>Ets Mezine</h3>
         </div>
-        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font-size:17px;line-height:1.45;font-weight:500">
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid #EAEAEA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"></path></svg>Un seul interlocuteur, du devis à la mise en service</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid #EAEAEA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"></path></svg>SAV Frimez avec pièces en stock, intervention sous 48h</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid #EAEAEA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"></path></svg>Conception 3D offerte avant devis</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid #EAEAEA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"></path></svg>Fabrication meuble sur mesure interne (inox et bois)</li>
-          <li style="display:flex;gap:14px;padding:18px 0;border-top:1px solid #EAEAEA"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"></path></svg>Délais annoncés et tenus, livraison dans les 58 wilayas</li>
+        <ul>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"/></svg>Un seul interlocuteur, du devis à la mise en service</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"/></svg>SAV Frimez avec pièces en stock, intervention sous 48h</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"/></svg>Conception 3D offerte avant devis</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"/></svg>Fabrication meuble sur mesure interne (inox et bois)</li>
+          <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1450C8" stroke-width="2.4" style="flex:none;margin-top:2px"><path d="M5 12.5 10 17 19 7"/></svg>Délais annoncés et tenus, livraison dans les 58 wilayas</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 7. MARQUES -->
-<section data-screen-label="07 Marques" style="padding:clamp(56px,7vw,96px) 0;border-bottom:1px solid #E8E8E8">
-  <div style="display:flex;flex-direction:column;gap:36px">
-    <div style="padding:0 clamp(20px,5vw,64px);max-width:1408px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:baseline">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Les marques avec qui nous travaillons</div>
+<section class="temo">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">Ils nous ont fait confiance</div>
+      <h2>Ce qu'en disent<br>nos clients</h2>
     </div>
-    <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)">
-      <div ref="{{ marqRef }}" style="display:flex;width:max-content;padding:4px 0">
-        <sc-for list="{{ brandsLoop }}" as="b" hint-placeholder-count="7">
-          <span style="flex:none;margin:0 10px;display:flex;align-items:center">
-            <span style="{{ b.style }}">{{ b.name }}<sc-if value="{{ b.hasSub }}" hint-placeholder-val="{{ false }}"><span style="{{ b.subStyle }}">{{ b.sub }}</span></sc-if></span>
-          </span>
-        </sc-for>
-      </div>
+    <div class="temo-grid">
+      <figure class="temo-card">
+        <blockquote>« J'ai ouvert mon fast-food à Alger en 6 semaines grâce à Ets Mezine. Un seul interlocuteur, zéro galère. »</blockquote>
+        <figcaption>
+          <span class="avatar">KB</span>
+          <span class="meta"><strong>Karim B.</strong><span>Fast-food, Alger</span></span>
+        </figcaption>
+      </figure>
+      <figure class="temo-card">
+        <blockquote>« Le rendu 3D nous a convaincus avant même le devis. Notre comptoir sur mesure est exactement comme sur le plan. »</blockquote>
+        <figcaption>
+          <span class="avatar blue">SK</span>
+          <span class="meta"><strong>Samira K.</strong><span>Pâtisserie, Tizi Ouzou</span></span>
+        </figcaption>
+      </figure>
+      <figure class="temo-card">
+        <blockquote>« Panne de four en pleine saison. Le SAV Frimez est intervenu sous 48h avec la pièce. »</blockquote>
+        <figcaption>
+          <span class="avatar">YM</span>
+          <span class="meta"><strong>Yacine M.</strong><span>Restaurant, Béjaïa</span></span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- 8. TEMOIGNAGES -->
-<section data-screen-label="08 Témoignages" style="background:#F5F5F5;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>Ils nous ont fait confiance</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,6vw,84px);line-height:.95;letter-spacing:-.045em">Ce qu'en disent<br>nos clients</h2>
+<section id="faq" class="faq">
+  <div class="wrap">
+    <div class="head">
+      <div class="tag">FAQ</div>
+      <h2>Vos questions</h2>
+      <p>Une autre question ? <a href="https://wa.me/213561708577" target="_blank" rel="noopener">Posez-la sur WhatsApp</a>.</p>
     </div>
-    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px">
-      <figure style="margin:0;background:#fff;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:40px">
-        <blockquote style="margin:0;font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em;text-wrap:pretty">« J'ai ouvert mon fast-food à Alger en 6 semaines grâce à Ets Mezine. Un seul interlocuteur, zéro galère. »</blockquote>
-        <figcaption style="display:flex;align-items:center;gap:14px">
-          <span style="width:48px;height:48px;border-radius:50%;background:#0F0F0F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none">KB</span>
-          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:16px">Karim B.</strong><span style="font-size:14px;color:#6B6B6B">Fast-food, Alger</span></span>
-        </figcaption>
-      </figure>
-      <figure style="margin:0;background:#fff;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:40px">
-        <blockquote style="margin:0;font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em;text-wrap:pretty">« Le rendu 3D nous a convaincus avant même le devis. Notre comptoir sur mesure est exactement comme sur le plan. »</blockquote>
-        <figcaption style="display:flex;align-items:center;gap:14px">
-          <span style="width:48px;height:48px;border-radius:50%;background:#1450C8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none">SK</span>
-          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:16px">Samira K.</strong><span style="font-size:14px;color:#6B6B6B">Pâtisserie, Tizi Ouzou</span></span>
-        </figcaption>
-      </figure>
-      <figure style="margin:0;background:#fff;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:space-between;gap:40px">
-        <blockquote style="margin:0;font-family:'Archivo',sans-serif;font-weight:500;font-size:clamp(20px,1.8vw,24px);line-height:1.3;letter-spacing:-.02em;text-wrap:pretty">« Panne de four en pleine saison. Le SAV Frimez est intervenu sous 48h avec la pièce. »</blockquote>
-        <figcaption style="display:flex;align-items:center;gap:14px">
-          <span style="width:48px;height:48px;border-radius:50%;background:#0F0F0F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex:none">YM</span>
-          <span style="display:flex;flex-direction:column;gap:2px"><strong style="font-size:16px">Yacine M.</strong><span style="font-size:14px;color:#6B6B6B">Restaurant, Béjaïa</span></span>
-        </figcaption>
-      </figure>
-    </div>
-    <div data-reveal="" style="background:#0F0F0F;color:#fff;padding:clamp(28px,4vw,56px);display:flex;flex-direction:column;gap:32px">
-      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <h3 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(26px,3vw,40px);line-height:1.05;letter-spacing:-.035em">Vous êtes client ? Donnez votre avis.</h3>
-          <p style="margin:0;font-size:16px;line-height:1.5;color:#B5B5B5;max-width:52ch">Votre retour aide les futurs entrepreneurs à choisir. Il sera publié après validation.</p>
-        </div>
-        <sc-if value="{{ rvClosed }}" hint-placeholder-val="{{ true }}">
-          <button onClick="{{ rvOpenForm }}" style="height:56px;padding:0 28px;border-radius:999px;border:1px solid #fff;background:#fff;color:#0F0F0F;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-2px)">Laisser un avis</button>
-        </sc-if>
-      </div>
-
-      <sc-if value="{{ rvFormOn }}" hint-placeholder-val="{{ false }}">
-        <form onSubmit="{{ rvSubmit }}" style="display:flex;flex-direction:column;gap:20px;border-top:1px solid rgba(255,255,255,.14);padding-top:32px">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <span style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#A0A0A0">Votre note</span>
-            <div style="display:flex;gap:6px">
-              <sc-for list="{{ rvStars }}" as="st" hint-placeholder-count="5">
-                <button type="button" onClick="{{ st.set }}" aria-label="{{ st.label }}" style="width:44px;height:44px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center">
-                  <sc-if value="{{ st.on }}" hint-placeholder-val="{{ true }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F5B400"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2l-5.9 3.3 1.3-6.6-4.9-4.5 6.6-.8z"></path></svg></sc-if>
-                  <sc-if value="{{ st.off }}" hint-placeholder-val="{{ false }}"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="1.5"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.6L12 17.2l-5.9 3.3 1.3-6.6-4.9-4.5 6.6-.8z"></path></svg></sc-if>
-                </button>
-              </sc-for>
-            </div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
-            <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#B5B5B5">Nom et initiale
-              <input required="" value="{{ rvName }}" onChange="{{ rvSetName }}" placeholder="Karim B." style="height:52px;padding:0 16px;background:#1C1C1C;border:1px solid #333;color:#fff;font-family:inherit;font-size:16px;outline:none" style-focus="border-color:#fff">
-            </label>
-            <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#B5B5B5">Type de projet
-              <input value="{{ rvProject }}" onChange="{{ rvSetProject }}" placeholder="Fast-food, pâtisserie..." style="height:52px;padding:0 16px;background:#1C1C1C;border:1px solid #333;color:#fff;font-family:inherit;font-size:16px;outline:none" style-focus="border-color:#fff">
-            </label>
-            <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#B5B5B5">Wilaya
-              <input value="{{ rvCity }}" onChange="{{ rvSetCity }}" placeholder="Tizi Ouzou" style="height:52px;padding:0 16px;background:#1C1C1C;border:1px solid #333;color:#fff;font-family:inherit;font-size:16px;outline:none" style-focus="border-color:#fff">
-            </label>
-          </div>
-          <label style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#B5B5B5">Votre avis
-            <textarea required="" value="{{ rvText }}" onChange="{{ rvSetText }}" rows="4" placeholder="Racontez votre expérience avec Ets Mezine" style="padding:14px 16px;background:#1C1C1C;border:1px solid #333;color:#fff;font-family:inherit;font-size:16px;line-height:1.5;resize:vertical;outline:none" style-focus="border-color:#fff"></textarea>
-          </label>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
-            <button type="submit" style="display:flex;align-items:center;gap:10px;height:56px;padding:0 28px;border-radius:999px;border:0;background:#25D366;color:#0F0F0F;font-family:inherit;font-weight:700;font-size:16px;cursor:pointer;transition:transform .2s" style-hover="transform:translateY(-2px)">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"></path></svg>
-              Envoyer mon avis
-            </button>
-            <button type="button" onClick="{{ rvCancel }}" style="height:56px;padding:0 20px;border:0;background:none;color:#B5B5B5;font-family:inherit;font-size:15px;cursor:pointer" style-hover="color:#fff">Annuler</button>
-          </div>
-        </form>
-      </sc-if>
-
-      <sc-if value="{{ rvSent }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;align-items:center;gap:14px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px;font-size:17px">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.4"><path d="M5 12.5 10 17 19 7"></path></svg>
-          <span>Merci ! Votre avis nous a été transmis et sera publié après validation.</span>
-        </div>
-      </sc-if>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Livrez-vous dans toute l'Algérie ?</summary>
+        <p class="answer">Oui. Nous livrons et installons dans les 58 wilayas, du matériel à l'unité jusqu'à l'aménagement complet de votre local.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quels sont vos délais de livraison ?</summary>
+        <p class="answer">Les délais sont annoncés dès le devis, et tenus. Le matériel en stock part rapidement, le mobilier sur mesure dépend de la fabrication. Nous vous donnons une date précise sur WhatsApp.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Puis-je venir voir le matériel avant d'acheter ?</summary>
+        <p class="answer">Oui. Notre showroom de Tizi Ouzou est ouvert à la visite, et un deuxième showroom est en préparation. Venez voir et toucher le matériel avant de vous décider.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Que couvre le SAV Frimez ?</summary>
+        <p class="answer">Frimez est notre marque sœur dédiée au service après-vente : pièces détachées en stock et intervention sous 48h sur le matériel que nous installons.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Faites-vous du financement ou du paiement échelonné ?</summary>
+        <p class="answer">Écrivez-nous sur WhatsApp : nous étudions avec vous les modalités de paiement adaptées à votre projet.</p>
+      </details>
     </div>
   </div>
 </section>
 
-<!-- 9. FAQ -->
-<section id="faq" data-screen-label="09 FAQ" style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px)">
-  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
-    <div data-reveal="" style="display:flex;flex-direction:column;gap:24px">
-      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6B6B6B"><span style="width:8px;height:8px;background:#1450C8;display:block"></span>FAQ</div>
-      <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,5vw,72px);line-height:.95;letter-spacing:-.045em">Vos questions</h2>
-      <p style="margin:0;font-size:17px;line-height:1.55;color:#3A3A3A;max-width:34ch">Une autre question ? <a href="{{ waFinal }}" target="_blank" rel="noopener" style="color:#0F0F0F;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#1450C8">Posez-la sur WhatsApp</a>.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;border-top:1px solid #0F0F0F">
-      <div style="border-bottom:1px solid #DADADA">
-        <button onClick="{{ t0 }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F">
-          <span>Livrez-vous dans toute l'Algérie ?</span>
-          <span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400"><sc-if value="{{ f0 }}" hint-placeholder-val="{{ true }}">−</sc-if><sc-if value="{{ n0 }}" hint-placeholder-val="{{ false }}">+</sc-if></span>
-        </button>
-        <sc-if value="{{ f0 }}" hint-placeholder-val="{{ true }}"><p style="margin:0;padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A">Oui. Nous livrons et installons dans les 58 wilayas, du matériel à l'unité jusqu'à l'aménagement complet de votre local.</p></sc-if>
-      </div>
-      <div style="border-bottom:1px solid #DADADA">
-        <button onClick="{{ t1 }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F">
-          <span>Quels sont vos délais de livraison ?</span>
-          <span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400"><sc-if value="{{ f1 }}" hint-placeholder-val="{{ false }}">−</sc-if><sc-if value="{{ n1 }}" hint-placeholder-val="{{ true }}">+</sc-if></span>
-        </button>
-        <sc-if value="{{ f1 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A">Les délais sont annoncés dès le devis, et tenus. Le matériel en stock part rapidement, le mobilier sur mesure dépend de la fabrication. Nous vous donnons une date précise sur WhatsApp.</p></sc-if>
-      </div>
-      <div style="border-bottom:1px solid #DADADA">
-        <button onClick="{{ t2 }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F">
-          <span>Puis-je venir voir le matériel avant d'acheter ?</span>
-          <span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400"><sc-if value="{{ f2 }}" hint-placeholder-val="{{ false }}">−</sc-if><sc-if value="{{ n2 }}" hint-placeholder-val="{{ true }}">+</sc-if></span>
-        </button>
-        <sc-if value="{{ f2 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A">Oui. Notre showroom de Tizi Ouzou est ouvert à la visite, et un deuxième showroom est en préparation. Venez voir et toucher le matériel avant de vous décider.</p></sc-if>
-      </div>
-      <div style="border-bottom:1px solid #DADADA">
-        <button onClick="{{ t3 }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F">
-          <span>Que couvre le SAV Frimez ?</span>
-          <span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400"><sc-if value="{{ f3 }}" hint-placeholder-val="{{ false }}">−</sc-if><sc-if value="{{ n3 }}" hint-placeholder-val="{{ true }}">+</sc-if></span>
-        </button>
-        <sc-if value="{{ f3 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A">Frimez est notre marque sœur dédiée au service après-vente : pièces détachées en stock et intervention sous 48h sur le matériel que nous installons.</p></sc-if>
-      </div>
-      <div style="border-bottom:1px solid #DADADA">
-        <button onClick="{{ t4 }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;background:none;border:0;cursor:pointer;text-align:left;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(18px,1.6vw,22px);letter-spacing:-.015em;color:#0F0F0F">
-          <span>Faites-vous du financement ou du paiement échelonné ?</span>
-          <span style="flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #CFCFCF;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:400"><sc-if value="{{ f4 }}" hint-placeholder-val="{{ false }}">−</sc-if><sc-if value="{{ n4 }}" hint-placeholder-val="{{ true }}">+</sc-if></span>
-        </button>
-        <sc-if value="{{ f4 }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 56px 28px 0;font-size:17px;line-height:1.6;color:#3A3A3A">Écrivez-nous sur WhatsApp : nous étudions avec vous les modalités de paiement adaptées à votre projet.</p></sc-if>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 10. CTA FINAL -->
-<section data-screen-label="10 CTA final" style="background:#0A1A3A;color:#fff;min-height:80svh;display:flex;align-items:center;justify-content:center;padding:clamp(72px,10vw,140px) clamp(20px,5vw,64px);text-align:center">
-  <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:32px;max-width:1000px">
-    <h2 style="margin:0;font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(48px,8vw,120px);line-height:.92;letter-spacing:-.05em;text-wrap:balance">Prêt à lancer votre projet ?</h2>
-    <p style="margin:0;font-size:clamp(18px,1.6vw,22px);line-height:1.5;max-width:44ch;text-wrap:pretty;color:rgba(255,255,255,.85)">Un conseiller vous répond sur WhatsApp sous 15 minutes, du samedi au jeudi, de 8h à 17h.</p>
-    <a href="{{ waFinal }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;height:68px;padding:0 36px;border-radius:999px;background:#25D366;color:#0F0F0F;font-weight:700;font-size:19px;outline:2px solid #fff;outline-offset:6px;box-shadow:0 18px 40px rgba(0,0,0,.3);transition:transform .2s" style-hover="transform:translateY(-3px);color:#0F0F0F">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"></path></svg>
+<section class="cta-final">
+  <div class="cta-final-inner">
+    <h2>Prêt à lancer votre projet ?</h2>
+    <p>Un conseiller vous répond sur WhatsApp sous 15 minutes, du samedi au jeudi, de 8h à 17h.</p>
+    <a class="btn btn-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20j%27ai%20un%20projet%20d%27am%C3%A9nagement%20et%20je%20souhaite%20un%20conseil." target="_blank" rel="noopener">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
       Discuter avec un conseiller
     </a>
   </div>
 </section>
 
-<!-- 11. FOOTER -->
-<footer data-screen-label="11 Footer" style="background:#0F0F0F;color:#fff;padding:clamp(56px,7vw,96px) clamp(20px,5vw,64px) 32px">
-  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:40px">
-      <div style="display:flex;flex-direction:column;gap:20px">
-        <img src="assets/logo-ets-mezine.png" alt="Ets Mezine" style="width:96px;height:96px;border-radius:50%;display:block">
-        <p style="margin:0;font-size:15px;line-height:1.6;color:#B5B5B5;max-width:30ch">Aménagement professionnel clé en main pour la restauration, partout en Algérie.</p>
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="assets/logo-ets-mezine.png" alt="Ets Mezine">
+        <p>Aménagement professionnel clé en main pour la restauration, partout en Algérie.</p>
       </div>
-      <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5">
-        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A">Showroom</span>
-        <span style="color:#E5E5E5">Adresse du showroom<br>Tizi Ouzou, Algérie</span>
+      <div class="footer-col">
+        <span class="label">Showroom</span>
+        <span style="color:#E5E5E5">Tizi Ouzou, Algérie</span>
         <span style="color:#B5B5B5">Samedi au jeudi, de 8h à 17h</span>
       </div>
-      <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5">
-        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A">Contact</span>
-        <a href="{{ tel }}" style="color:#fff" style-hover="color:#6E9BFF">{{ phone }}</a>
-        <a href="{{ waFinal }}" target="_blank" rel="noopener" style="color:#25D366" style-hover="color:#fff">WhatsApp</a>
+      <div class="footer-col">
+        <span class="label">Contact</span>
+        <a href="tel:+213561708577">+213 561 70 85 77</a>
+        <a class="wa" href="https://wa.me/213561708577" target="_blank" rel="noopener">WhatsApp</a>
       </div>
-      <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.5">
-        <span style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#8A8A8A">Suivez-nous</span>
-        <a href="#" style="color:#fff" style-hover="color:#6E9BFF">Instagram</a>
-        <a href="#" style="color:#fff" style-hover="color:#6E9BFF">Facebook</a>
-        <a href="#" style="color:#fff" style-hover="color:#6E9BFF">TikTok</a>
+      <div class="footer-col">
+        <span class="label">Suivez-nous</span>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">TikTok</a>
       </div>
     </div>
-    <div style="position:relative;width:100%;height:clamp(240px,30vw,360px);background:#1C1C1C">
-      <iframe title="Showroom Ets Mezine, Tizi Ouzou" src="https://www.google.com/maps?q=Tizi+Ouzou,+Alg%C3%A9rie&amp;output=embed" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)"></iframe>
-    </div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#8A8A8A">
-      <span>© 2026 Ets Mezine. SAV assuré par Frimez.</span>
-      <a href="#" style="color:#8A8A8A" style-hover="color:#fff">Mentions légales</a>
+    <div class="footer-map"><iframe title="Showroom Ets Mezine, Tizi Ouzou" src="https://www.google.com/maps?q=Tizi+Ouzou,+Alg%C3%A9rie&amp;output=embed" loading="lazy"></iframe></div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ets Mezine. Tous droits reserves.</span>
+      <span>SAV garanti par Frimez.</span>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp flottant -->
-<a href="{{ waFinal }}" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp" style="position:fixed;right:20px;bottom:20px;z-index:50;width:62px;height:62px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(0,0,0,.28);transition:transform .2s" style-hover="transform:scale(1.06);color:#fff">
-  <span ref="{{ pulseRef }}" style="position:absolute;inset:0;border-radius:50%;background:#25D366;pointer-events:none"></span>
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" style="position:relative"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.950L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"></path></svg>
+<a class="wa-float" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20j%27ai%20un%20projet%20d%27am%C3%A9nagement." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
 </a>
 
-<!-- Lightbox galerie -->
-<sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}">
-  <div onClick="{{ closeLb }}" style="position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;cursor:zoom-out">
-    <sc-if value="{{ lbHasImg }}" hint-placeholder-val="{{ true }}">
-      <div role="img" aria-label="{{ lbLabel }}" style="width:min(100%,1200px);height:82vh;background-image:{{ lbBg }};background-size:contain;background-repeat:no-repeat;background-position:center"></div>
-    </sc-if>
-    <sc-if value="{{ lbNoImg }}" hint-placeholder-val="{{ false }}">
-      <div style="color:#B5B5B5;font-size:17px">Aucune photo pour le moment. Déposez une image dans la vignette.</div>
-    </sc-if>
-    <div style="color:#fff;font-weight:600;font-size:16px">{{ lbLabel }}</div>
-    <button onClick="{{ closeLb }}" aria-label="Fermer" style="position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:none;color:#fff;font-size:22px;cursor:pointer">×</button>
-  </div>
-</sc-if>
-
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;waNumber&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0561708577&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;0561 70 85 77&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;animations&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Effets&quot;}}">
-class Component extends DCLogic {
-  state = { wide: typeof window !== 'undefined' ? window.innerWidth >= 900 : true, faq: 0, lb: null };
-  marqRef = React.createRef();
-  pulseRef = React.createRef();
-  gal = [
-    ['patisserie-doree', 'Pâtisserie, vitrines rétroéclairées'],
-    ['fast-food', 'Fast-food, comptoir sur mesure'],
-    ['patisserie-vitrines-blanches', 'Pâtisserie, vitrines réfrigérées'],
-    ['cafe-comptoir', 'Café, comptoir et vitrines'],
-    ['patisserie-orientale', 'Pâtisserie orientale'],
-    ['snack-comptoir-u', 'Snack, comptoir en U'],
-    ['patisserie-comptoir-bois', 'Pâtisserie, comptoir bois'],
-    ['boulangerie-bois', 'Boulangerie-pâtisserie'],
-    ['patisserie-traditionnelle', 'Pâtisserie traditionnelle'],
-    ['boulangerie-comptoir-blanc', 'Boulangerie, comptoir vitré'],
-    ['patisserie-salon-de-the', 'Pâtisserie et salon de thé'],
-    ['rendu-3d-boulangerie', 'Rendu 3D, boulangerie']
-  ];
-  labels = this.gal.map(g => g[1]);
-  brands = (() => {
-    const base = { height: 76, padding: '0 30px', display: 'flex', alignItems: 'center', gap: 10, whiteSpace: 'nowrap', borderRadius: 4, fontFamily: "'Archivo',sans-serif", lineHeight: 1 };
-    const white = Object.assign({}, base, { background: '#fff', border: '1px solid #E3E3E3' });
-    const stripes = 'repeating-linear-gradient(90deg,#D4141E 0 12px,#fff 12px 24px) bottom/100% 8px no-repeat';
-    const script = "'Pacifico',cursive";
-    return [
-      { name: 'MORSI', sub: 'مرسي', style: Object.assign({}, white, { color: '#C8102E', fontWeight: 800, fontSize: 30, letterSpacing: '.06em' }), subStyle: { fontFamily: 'system-ui,sans-serif', fontWeight: 700, fontSize: 24 } },
-      { name: 'Caame', style: Object.assign({}, white, { color: '#C8102E', fontFamily: script, fontSize: 32, fontWeight: 400 }) },
-      { name: 'COMAF', style: Object.assign({}, base, { background: '#0B4EA2', color: '#fff', fontWeight: 800, fontSize: 32, letterSpacing: '.04em' }) },
-      { name: 'BOUCHAMA', style: Object.assign({}, white, { color: '#D4141E', fontWeight: 800, fontSize: 28, letterSpacing: '.05em', paddingBottom: 6, background: stripes + ', #fff' }) },
-      { name: 'Rabalissa', style: Object.assign({}, base, { background: '#1F5FBF', color: '#fff', fontWeight: 700, fontSize: 30, letterSpacing: '-.01em' }) },
-      { name: 'Omar', style: Object.assign({}, white, { color: '#C8102E', fontFamily: script, fontSize: 32, fontWeight: 400, paddingBottom: 6, background: stripes + ', #fff' }) },
-      { name: 'GOURAYA', sub: 'Froid', style: Object.assign({}, white, { color: '#0B4EA2', fontWeight: 800, fontSize: 30, letterSpacing: '.04em' }), subStyle: { fontWeight: 500, fontSize: 24, letterSpacing: 0 } }
-    ].map(b => Object.assign(b, { hasSub: !!b.sub }));
-  })();
-
-  componentDidMount() {
-    this.mq = window.matchMedia('(min-width: 900px)');
-    this.onMq = e => this.setState({ wide: e.matches });
-    this.mq.addEventListener('change', this.onMq);
-    this.setState({ wide: this.mq.matches });
-    this.onResize = () => { if (this.mq.matches !== this.state.wide) this.setState({ wide: this.mq.matches }); };
-    window.addEventListener('resize', this.onResize);
-    this.onKey = e => { if (e.key === 'Escape') this.setState({ lb: null }); };
-    window.addEventListener('keydown', this.onKey);
-    const m = this.marqRef.current;
-    if (m && m.animate) m.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-50%)' }], { duration: 45000, iterations: Infinity });
-    const p = this.pulseRef.current;
-    if (p && p.animate) p.animate([{ transform: 'scale(1)', opacity: 0.55 }, { transform: 'scale(1.7)', opacity: 0 }], { duration: 2200, iterations: Infinity, easing: 'ease-out' });
-    if (this.props.animations !== false && 'IntersectionObserver' in window) {
-      this.io = new IntersectionObserver(entries => entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        const el = en.target;
-        this.io.unobserve(el);
-        el.animate([{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }], { duration: 800, easing: 'cubic-bezier(.2,.7,.2,1)' });
-        el.style.opacity = '';
-      }), { threshold: 0.12 });
-      document.querySelectorAll('[data-reveal]').forEach(el => {
-        const r = el.getBoundingClientRect();
-        if (r.top < window.innerHeight) return;
-        el.style.opacity = '0';
-        this.io.observe(el);
-      });
-    }
-  }
-  componentWillUnmount() {
-    this.mq && this.mq.removeEventListener('change', this.onMq);
-    window.removeEventListener('keydown', this.onKey);
-    window.removeEventListener('resize', this.onResize);
-    this.io && this.io.disconnect();
-  }
-
-  wa(msg) {
-    const num = String(this.props.waNumber ?? '0561708577').replace(/\D/g, '').replace(/^0/, '213');
-    return 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
-  }
-
-  openLb(i) {
-    const el = document.getElementById('real-' + (i + 1));
-    const img = el && el.shadowRoot && el.shadowRoot.querySelector('.frame img');
-    const src = img && img.style.display !== 'none' ? img.getAttribute('src') : null;
-    this.setState({ lb: { src, label: this.labels[i] } });
-  }
-
-  renderVals() {
-    const phone = this.props.phone ?? '0561 70 85 77';
-    const { faq, lb } = this.state;
-    const v = {
-      wide: this.state.wide,
-      phone,
-      tel: 'tel:+213' + phone.replace(/\D/g, '').replace(/^(213|0)/, ''),
-      waHero: this.wa("Bonjour Ets Mezine, je veux discuter de mon projet d'aménagement."),
-      waFinal: this.wa("Bonjour Ets Mezine, j'ai un projet d'aménagement et je souhaite un conseil."),
-      gallery: this.gal.map((g, i) => ({ id: 'real-' + (i + 1), src: 'assets/modeles/' + g[0] + '.jpg', label: g[1], open: () => this.openLb(i) })),
-      brandsLoop: [].concat(this.brands, this.brands, this.brands, this.brands),
-      marqRef: this.marqRef,
-      pulseRef: this.pulseRef,
-      lbOpen: !!lb,
-      lbHasImg: !!(lb && lb.src),
-      lbNoImg: !!(lb && !lb.src),
-      lbBg: lb && lb.src ? 'url("' + lb.src + '")' : 'none',
-      lbLabel: lb ? lb.label : '',
-      closeLb: () => this.setState({ lb: null })
-    };
-    const rv = this.state.rv || { mode: 'closed', stars: 5, name: '', project: '', city: '', text: '' };
-    const setRv = patch => this.setState(s => ({ rv: Object.assign({}, s.rv || rv, patch) }));
-    Object.assign(v, {
-      rvClosed: rv.mode !== 'form',
-      rvFormOn: rv.mode === 'form',
-      rvSent: rv.mode === 'sent',
-      rvOpenForm: () => setRv({ mode: 'form' }),
-      rvCancel: () => setRv({ mode: 'closed' }),
-      rvStars: [1, 2, 3, 4, 5].map(n => ({ on: n <= rv.stars, off: n > rv.stars, label: n + ' étoile' + (n > 1 ? 's' : ''), set: () => setRv({ stars: n }) })),
-      rvName: rv.name, rvProject: rv.project, rvCity: rv.city, rvText: rv.text,
-      rvSetName: e => setRv({ name: e.target.value }),
-      rvSetProject: e => setRv({ project: e.target.value }),
-      rvSetCity: e => setRv({ city: e.target.value }),
-      rvSetText: e => setRv({ text: e.target.value }),
-      rvSubmit: e => {
-        e.preventDefault();
-        const msg = 'Bonjour Ets Mezine, voici mon avis client :\n' +
-          'Note : ' + rv.stars + '/5\n' + 'Nom : ' + rv.name + '\n' +
-          (rv.project ? 'Projet : ' + rv.project + '\n' : '') + (rv.city ? 'Wilaya : ' + rv.city + '\n' : '') +
-          'Avis : ' + rv.text;
-        window.open(this.wa(msg), '_blank', 'noopener');
-        setRv({ mode: 'sent', name: '', project: '', city: '', text: '', stars: 5 });
-      }
-    });
-    for (let i = 0; i < 5; i++) {
-      v['f' + i] = faq === i;
-      v['n' + i] = faq !== i;
-      v['t' + i] = () => this.setState(s => ({ faq: s.faq === i ? null : i }));
-    }
-    return v;
-  }
-}
-</script>
-<script>
-(function(){function convert(){document.querySelectorAll('img').forEach(function(img){if(img.closest('a')||img.closest('button')||img.dataset.converted)return;var div=document.createElement('div');var s=getComputedStyle(img);div.style.cssText='position:'+s.position+';inset:0;width:'+s.width+';height:'+s.height+';display:block;background-image:url("'+img.src+'");background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none;touch-action:pan-y';if(img.getAttribute('style'))div.setAttribute('style',img.getAttribute('style').replace(/object-fit:[^;]+;?/,'')+';background-image:url("'+img.src+'");background-size:cover;background-position:center;background-repeat:no-repeat;pointer-events:none;touch-action:pan-y');div.dataset.converted='1';img.parentNode.replaceChild(div,img);});}window.addEventListener('load',function(){setTimeout(convert,100);setTimeout(convert,500);setTimeout(convert,1500);setTimeout(convert,3000);});})();
-</script>
 </body>
 </html>
