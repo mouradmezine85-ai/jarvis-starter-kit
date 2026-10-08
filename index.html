@@ -74,7 +74,15 @@ a:hover{color:#0F0F0F}
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
 }
-</style><link rel="preload" as="image" href="assets/modeles/patisserie-verte-noire.jpg" fetchpriority="high" data-dc-tpl="8"></head>
+</style><link rel="preload" as="image" href="assets/modeles/patisserie-verte-noire.jpg" fetchpriority="high" data-dc-tpl="8"><style id="scroll-fix-mobile">
+html{-webkit-overflow-scrolling:touch;overflow-y:scroll;overflow-x:hidden;height:100%;touch-action:pan-y}
+body{margin:0;height:auto;min-height:100%;overflow:visible;touch-action:pan-y}
+*{touch-action:pan-y}
+img{touch-action:pan-y!important;-webkit-user-drag:none;-webkit-touch-callout:none;user-select:none;pointer-events:none!important}
+a img,button img,a>img{pointer-events:none!important}
+a,button,[role=button]{touch-action:manipulation}
+</style>
+</head>
 <body>
 <div id="dc-root"><div class="sc-host" data-sc-name="Root"><div data-dc-tpl="9" style="font-family: &quot;Hanken Grotesk&quot;, system-ui, sans-serif; color: rgb(15, 15, 15); background: rgb(255, 255, 255); overflow-x: hidden;"><header data-dc-tpl="10" data-screen-label="01 Hero" style="position: relative; min-height: 100svh; background: rgb(26, 26, 26); color: rgb(255, 255, 255); display: flex; flex-direction: column;">
   <div data-dc-tpl="11" style="position: absolute; inset: 0px;">
