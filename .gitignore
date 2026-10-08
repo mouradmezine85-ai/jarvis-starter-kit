@@ -34,3 +34,13 @@ build/
 .vscode/
 .idea/
 *.swp
+
+# ============================================================
+# Dossiers d'images lourds (gardés en local, non versionnés)
+# Les URLs CloudFront sont conservées dans media_ids.json
+# ============================================================
+livrables/ets-mezine/photos-site/originales/
+livrables/ets-mezine/photos-site/retouches/
+livrables/ets-mezine/photos-site/facade/
+livrables/ets-mezine/photos-site/hero/
+livrables/ets-mezine/photos-site/services/

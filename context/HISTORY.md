@@ -7,6 +7,20 @@
 
 ---
 
+## 2026-10-08
+
+### Retouche 15 photos vitrines Ets Mezine (pour site web)
+- 15 photos originales de l'atelier (fond industriel, béton, structures métal) transformées en visuels prêts pour site e-commerce / vitrine
+- Modèle utilisé : Nano Banana 2.1 (Google), 2 crédits/image, 30 crédits dépensés sur 52.95
+- Chaque vitrine mise en scène dans un local moderne adapté au marché algérien : pâtisseries haut de gamme Alger (marbre, arabesques dorées, pendants brass), boulangeries chic, salon de café spécialité, snack moderne, boutique Ramadan (vitrine 9), bistrot franco-algérien (vitrine 14), etc.
+- Vitrines gardées 100% identiques (couleurs, matériaux, LED, proportions), seuls les fonds ont été remplacés
+- Originales sauvegardées dans `livrables/ets-mezine/photos-site/originales/` (JPG, 54KB à 340KB)
+- Retouches sauvegardées dans `livrables/ets-mezine/photos-site/retouches/` (PNG 2k, ~8MB chacune)
+- Mapping media_ids sauvegardé dans `livrables/ets-mezine/photos-site/media_ids.json`
+- Prêtes à être uploadées sur Shopify / Wix / Wordpress ou n'importe quelle plateforme de site
+
+---
+
 ## 2026-10-06
 
 ### Playbook campagnes marketing Ets Mezine (18 campagnes)
