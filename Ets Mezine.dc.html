@@ -21,8 +21,10 @@
 <script src="./image-slot.js"></script>
 <style>
 html{scroll-behavior:smooth}
-html,body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
+html,body{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;touch-action:pan-y;height:auto!important}
 body{margin:0;min-height:100vh;background:#fff;color:#0F0F0F;font-family:'Hanken Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+x-dc,helmet{display:block;touch-action:pan-y}
+helmet{display:none}
 *{box-sizing:border-box}
 a{color:#D4341F;text-decoration:none}
 a:hover{color:#0F0F0F}
