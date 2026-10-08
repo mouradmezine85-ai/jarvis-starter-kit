@@ -45,11 +45,17 @@ ul{list-style:none}
 .hero-nav .right{display:flex;align-items:center;gap:16px}
 .nav-wa{display:flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(255,255,255,.6);color:#fff;font-size:14px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;transition:background .2s,border-color .2s}
 .nav-wa:hover{background:#25D366;border-color:#25D366;color:#0F0F0F}
-.hero-body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:clamp(32px,7vh,96px) clamp(20px,5vw,64px) 40px;max-width:980px}
+.hero-main{position:relative;z-index:2;flex:1;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:40px;padding:clamp(32px,7vh,96px) clamp(20px,5vw,64px) 40px}
+.hero-body{display:flex;flex-direction:column;gap:28px;flex:1 1 480px;min-width:0;max-width:980px}
 .hero-eyebrow{font-size:14px;color:rgba(255,255,255,.78);letter-spacing:.02em}
 .hero h1{font-family:'Archivo',sans-serif;font-weight:600;font-size:clamp(40px,7vw,100px);line-height:.95;letter-spacing:-.045em;max-width:14ch;text-wrap:balance;margin:0}
 .hero-sub{font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:rgba(255,255,255,.9);max-width:46ch;margin:0}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.hero-3d{display:none;flex:0 0 280px;flex-direction:column;gap:14px;background:#fff;color:#0F0F0F;padding:18px;transition:transform .25s;align-self:flex-end;text-decoration:none}
+@media(min-width:1024px){.hero-3d{display:flex}}
+.hero-3d:hover{transform:translateY(-4px);color:#0F0F0F}
+.hero-3d-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:600;font-size:16px}
+.hero-3d-img{height:170px;background:url('assets/modeles/conception-3d-avant-apres.jpg') center/cover no-repeat}
 .hero-footer-row{position:relative;z-index:2;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;padding:0 clamp(20px,5vw,64px) clamp(28px,5vh,56px)}
 .hero-footer-row p{margin:0;flex:1 1 420px;font-family:'Archivo',sans-serif;font-weight:400;font-size:clamp(22px,2.6vw,36px);line-height:1.15;letter-spacing:-.025em;max-width:22ch}
 .hero-sav{display:flex;align-items:center;gap:28px}
@@ -191,17 +197,26 @@ ul{list-style:none}
     </div>
   </nav>
 
-  <div class="hero-body">
-    <div class="hero-eyebrow">Showroom à Tizi Ouzou. Livraison dans les 58 wilayas.</div>
-    <h1>Votre fast-food, restaurant ou pâtisserie, livré clé en main.</h1>
-    <p class="hero-sub">Conception 3D offerte. Matériel pro importé. SAV garanti. Aux côtés des entrepreneurs algériens.</p>
-    <div class="hero-cta">
-      <a class="btn btn-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20discuter%20de%20mon%20projet%20d%27am%C3%A9nagement." target="_blank" rel="noopener">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
-        <span>Discuter sur WhatsApp</span>
-      </a>
-      <a class="btn btn-outline" href="#modeles">Voir nos modèles</a>
+  <div class="hero-main">
+    <div class="hero-body">
+      <div class="hero-eyebrow">Showroom à Tizi Ouzou. Livraison dans les 58 wilayas.</div>
+      <h1>Votre fast-food, restaurant ou pâtisserie, livré clé en main.</h1>
+      <p class="hero-sub">Conception 3D offerte. Matériel pro importé. SAV garanti. Aux côtés des entrepreneurs algériens.</p>
+      <div class="hero-cta">
+        <a class="btn btn-wa" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20discuter%20de%20mon%20projet%20d%27am%C3%A9nagement." target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>
+          <span>Discuter sur WhatsApp</span>
+        </a>
+        <a class="btn btn-outline" href="#modeles">Voir nos modèles</a>
+      </div>
     </div>
+    <a class="hero-3d" href="https://wa.me/213561708577?text=Bonjour%20Ets%20Mezine%2C%20je%20veux%20une%20conception%203D%20offerte." target="_blank" rel="noopener">
+      <div class="hero-3d-top">
+        <span>Conception 3D offerte</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"/></svg>
+      </div>
+      <div class="hero-3d-img"></div>
+    </a>
   </div>
 
   <div class="hero-footer-row">
