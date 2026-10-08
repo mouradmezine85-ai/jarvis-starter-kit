@@ -96,7 +96,7 @@ a:hover{color:#0F0F0F}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 11 3M5 3h6v6"></path></svg>
           </div>
           <div style="height:170px;position:relative">
-            <image-slot id="hero-3d" loading="lazy" decoding="async" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
+            <image-slot id="hero-3d" shape="rect" src="assets/modeles/conception-3d-avant-apres.jpg" placeholder="Rendu 3D d'un aménagement"></image-slot>
           </div>
         </a>
       </div>
@@ -151,7 +151,7 @@ a:hover{color:#0F0F0F}
       </div>
     </div>
     <div style="position:relative;aspect-ratio:4/5;max-height:640px;width:100%">
-      <image-slot id="about-showroom" loading="lazy" decoding="async" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
+      <image-slot id="about-showroom" shape="rect" src="assets/modeles/patisserie-boulangerie-luxe.jpg" placeholder="Photo du showroom de Tizi Ouzou ou de l'équipe"></image-slot>
     </div>
   </div>
 </section>
@@ -211,7 +211,7 @@ a:hover{color:#0F0F0F}
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:16px">
       <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="12">
         <figure style="margin:0;position:relative;aspect-ratio:4/3;background:#F0F0F0;overflow:hidden">
-          <image-slot id="{{ g.id }}" loading="lazy" decoding="async" src="{{ g.src }}" shape="rect" placeholder="Photo modèle ou rendu 3D"></image-slot>
+          <image-slot id="{{ g.id }}" src="{{ g.src }}" shape="rect" placeholder="Photo modèle ou rendu 3D"></image-slot>
           <figcaption style="position:absolute;left:12px;bottom:12px;pointer-events:none;background:#fff;color:#0F0F0F;font-size:13px;font-weight:600;padding:6px 10px">{{ g.label }}</figcaption>
           <button onClick="{{ g.open }}" aria-label="Agrandir" style="position:absolute;top:12px;right:12px;width:40px;height:40px;border:0;border-radius:50%;background:rgba(15,15,15,.75);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s" style-hover="background:#1450C8">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"></path></svg>
@@ -449,7 +449,7 @@ a:hover{color:#0F0F0F}
       </div>
     </div>
     <div style="position:relative;width:100%;height:clamp(240px,30vw,360px);background:#1C1C1C">
-      <iframe title="Showroom Ets Mezine, Tizi Ouzou" src="https://www.google.com/maps?q=Tizi+Ouzou,+Alg%C3%A9rie&amp;output=embed" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)"></iframe>
+      <iframe title="Showroom Ets Mezine, Tizi Ouzou" src="https://www.google.com/maps?q=Tizi+Ouzou,+Alg%C3%A9rie&amp;output=embed" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)"></iframe>
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#8A8A8A">
       <span>© 2026 Ets Mezine. SAV assuré par Frimez.</span>
