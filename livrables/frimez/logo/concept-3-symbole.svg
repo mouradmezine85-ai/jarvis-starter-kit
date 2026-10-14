@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@800&amp;display=swap');
+      .wm {
+        font-family: 'Poppins', 'Helvetica Neue', 'Arial Black', sans-serif;
+        font-weight: 800;
+        font-size: 180px;
+        letter-spacing: 4px;
+        fill: #003B73;
+      }
+      .tag {
+        font-family: 'Poppins', 'Arial', sans-serif;
+        font-weight: 500;
+        font-size: 28px;
+        letter-spacing: 10px;
+        fill: #087CE8;
+      }
+    </style>
+  </defs>
+
+  <!-- SYMBOL at top: snowflake + flame fused around a thermometer -->
+  <g transform="translate(600, 130)">
+    <!-- Rounded square badge background -->
+    <rect x="-85" y="-85" width="170" height="170" rx="24" ry="24"
+          fill="none" stroke="#003B73" stroke-width="4"/>
+
+    <!-- Snowflake (left side, blue - cold) -->
+    <g stroke="#087CE8" stroke-width="5" stroke-linecap="round" transform="translate(-45, 0)">
+      <line x1="0" y1="-35" x2="0" y2="35"/>
+      <line x1="-30" y1="-17" x2="30" y2="17"/>
+      <line x1="-30" y1="17" x2="30" y2="-17"/>
+      <!-- Tiny tips -->
+      <line x1="0" y1="-35" x2="-6" y2="-28"/>
+      <line x1="0" y1="-35" x2="6" y2="-28"/>
+      <line x1="0" y1="35" x2="-6" y2="28"/>
+      <line x1="0" y1="35" x2="6" y2="28"/>
+    </g>
+
+    <!-- Thermometer in center -->
+    <g transform="translate(-12, -55)">
+      <rect x="0" y="0" width="24" height="90" rx="12" ry="12" fill="#FFFFFF" stroke="#003B73" stroke-width="4"/>
+      <rect x="4" y="45" width="16" height="40" fill="#087CE8"/>
+      <rect x="4" y="8" width="16" height="37" rx="8" ry="8" fill="#E52323"/>
+      <rect x="4" y="35" width="16" height="10" fill="#E52323"/>
+      <circle cx="12" cy="105" r="18" fill="#E52323" stroke="#003B73" stroke-width="4"/>
+    </g>
+
+    <!-- Flame (right side, red - hot) -->
+    <g transform="translate(45, 0)" fill="#E52323">
+      <path d="M 0 -35
+               C -14 -18, -18 -5, -10 8
+               C -16 14, -14 25, -5 32
+               C -3 25, 2 25, 5 32
+               C 14 25, 16 14, 10 8
+               C 18 -5, 14 -18, 0 -35 Z"/>
+      <!-- Inner glow -->
+      <path d="M 0 -18
+               C -6 -8, -8 2, -4 10
+               C -2 14, 2 14, 4 10
+               C 8 2, 6 -8, 0 -18 Z" fill="#FFFFFF" opacity="0.3"/>
+    </g>
+  </g>
+
+  <!-- FR -->
+  <text x="330" y="365" class="wm">FR</text>
+
+  <!-- Thermometer replacing I in the wordmark -->
+  <g transform="translate(555, 220)">
+    <rect x="0" y="0" width="22" height="140" rx="11" ry="11" fill="#FFFFFF" stroke="#003B73" stroke-width="4"/>
+    <rect x="4" y="75" width="14" height="63" fill="#087CE8"/>
+    <rect x="4" y="4" width="14" height="71" rx="7" ry="7" fill="#E52323"/>
+    <rect x="4" y="40" width="14" height="35" fill="#E52323"/>
+    <circle cx="11" cy="156" r="16" fill="#E52323" stroke="#003B73" stroke-width="4"/>
+  </g>
+
+  <!-- MEZ -->
+  <text x="595" y="365" class="wm">MEZ</text>
+
+  <!-- Tagline -->
+  <text x="600" y="430" class="tag" text-anchor="middle">FROID &#x2022; CLIMATISATION</text>
+</svg>

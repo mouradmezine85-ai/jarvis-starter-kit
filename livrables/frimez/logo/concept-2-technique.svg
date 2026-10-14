@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&amp;display=swap');
+      .wm {
+        font-family: 'Barlow Condensed', 'Impact', 'Arial Black', sans-serif;
+        font-weight: 900;
+        font-size: 240px;
+        letter-spacing: 2px;
+        fill: #003B73;
+      }
+    </style>
+  </defs>
+
+  <!-- Dynamic motion lines on the left (air circulation) -->
+  <g stroke="#087CE8" stroke-width="6" stroke-linecap="round" fill="none">
+    <path d="M 190 170 Q 230 170 240 180"/>
+    <path d="M 170 210 Q 220 210 235 220"/>
+    <path d="M 190 250 Q 230 250 240 260"/>
+  </g>
+
+  <!-- FR (italic skew) -->
+  <text x="260" y="300" class="wm" transform="skewX(-8)">FR</text>
+
+  <!-- Thermometer replacing I: with graduations, blue cold / red hot -->
+  <g transform="translate(545, 95)">
+    <!-- Tube outline -->
+    <rect x="0" y="0" width="34" height="200" rx="17" ry="17" fill="#FFFFFF" stroke="#003B73" stroke-width="5"/>
+    <!-- Blue zone (bottom half - cold) -->
+    <rect x="5" y="105" width="24" height="90" fill="#087CE8"/>
+    <!-- Red zone (top half - hot) -->
+    <rect x="5" y="5" width="24" height="100" rx="12" ry="12" fill="#E52323"/>
+    <rect x="5" y="55" width="24" height="50" fill="#E52323"/>
+    <!-- Divider line -->
+    <line x1="0" y1="105" x2="34" y2="105" stroke="#003B73" stroke-width="3"/>
+    <!-- Graduations on the right -->
+    <g stroke="#003B73" stroke-width="3" stroke-linecap="round">
+      <line x1="38" y1="30" x2="52" y2="30"/>
+      <line x1="38" y1="60" x2="46" y2="60"/>
+      <line x1="38" y1="90" x2="52" y2="90"/>
+      <line x1="38" y1="120" x2="46" y2="120"/>
+      <line x1="38" y1="150" x2="52" y2="150"/>
+      <line x1="38" y1="180" x2="46" y2="180"/>
+    </g>
+    <!-- Bulb (bi-color: inside blue dot with red ring suggesting hot/cold) -->
+    <circle cx="17" cy="222" r="30" fill="#E52323" stroke="#003B73" stroke-width="5"/>
+    <circle cx="17" cy="222" r="14" fill="#087CE8"/>
+  </g>
+
+  <!-- MEZ (italic skew) -->
+  <text x="615" y="300" class="wm" transform="skewX(-8)">MEZ</text>
+
+  <!-- Red accent underline on last letter stem -->
+  <rect x="260" y="320" width="760" height="6" fill="#E52323"/>
+</svg>

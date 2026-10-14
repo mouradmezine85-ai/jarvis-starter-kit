@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&amp;display=swap');
+      .wm {
+        font-family: 'Montserrat', 'Helvetica Neue', 'Arial Black', sans-serif;
+        font-weight: 800;
+        font-size: 200px;
+        letter-spacing: 8px;
+        fill: #003B73;
+      }
+      .tag {
+        font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+        font-weight: 500;
+        font-size: 36px;
+        letter-spacing: 24px;
+        fill: #003B73;
+      }
+    </style>
+  </defs>
+
+  <!-- FR -->
+  <text x="300" y="265" class="wm">FR</text>
+
+  <!-- Thermometer replacing I: slim capsule, blue bottom + red top, discreet dot -->
+  <g transform="translate(548, 108)">
+    <!-- Capsule outline -->
+    <rect x="0" y="0" width="26" height="160" rx="13" ry="13" fill="#FFFFFF" stroke="#003B73" stroke-width="4"/>
+    <!-- Blue cold half (bottom) -->
+    <path d="M 4 85 L 22 85 L 22 143 A 9 9 0 0 1 13 152 A 9 9 0 0 1 4 143 Z" fill="#087CE8"/>
+    <!-- Red hot half (top) -->
+    <path d="M 4 85 L 22 85 L 22 17 A 9 9 0 0 0 13 8 A 9 9 0 0 0 4 17 Z" fill="#E52323"/>
+    <!-- Center midline -->
+    <line x1="0" y1="85" x2="26" y2="85" stroke="#003B73" stroke-width="2"/>
+    <!-- Dot bulb at base -->
+    <circle cx="13" cy="178" r="18" fill="#087CE8" stroke="#003B73" stroke-width="4"/>
+  </g>
+
+  <!-- MEZ -->
+  <text x="595" y="265" class="wm">MEZ</text>
+
+  <!-- Tagline (optional, discreet) -->
+  <text x="600" y="330" class="tag" text-anchor="middle">FROID &#x2022; CLIMATISATION</text>
+</svg>
