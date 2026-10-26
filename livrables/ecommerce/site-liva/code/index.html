@@ -90,32 +90,6 @@ input,select,textarea,button{font-family:inherit}
   </div>
 </section>
 
-<!-- 1b. GALERIE PHOTOS PRODUIT -->
-<section data-screen-label="01b Galerie" style="background:#F8F3F6;padding:clamp(40px,6vw,80px) clamp(16px,4vw,48px)">
-  <div style="max-width:1280px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,220px),1fr));gap:16px">
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-        <img src="assets/liva/packshot.webp" alt="Brosse Liva vue de face" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block">
-      </div>
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
-        <img src="assets/liva/ceramique-mch.webp" alt="Ceramique MCH chaleur uniforme Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
-        <img src="assets/liva/design-sans-fil.webp" alt="Design sans fil Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
-        <img src="assets/liva/ugc-brossage.png" alt="Utilisation brosse Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
-        <img src="assets/liva/infographie-ar.png" alt="Benefices Liva en darija" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block">
-      </div>
-      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
-        <img src="assets/liva/temperatures.webp" alt="3 temperatures 160 180 200 degres" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 2. CHIFFRES CLES (remplace "Vu dans") -->
 <section data-screen-label="02 Chiffres clés" style="background:#fff;border-top:1px solid #EFE7EC;border-bottom:1px solid #EFE7EC;padding:0 clamp(16px,4vw,48px)">
   <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,180px),1fr))">
@@ -447,11 +421,11 @@ class Component extends DCLogic {
 
   imgs = [
     { src: 'assets/liva/packshot.webp', alt: 'Brosse Liva', fit: 'contain' },
-    { src: 'assets/liva/temperatures.webp', alt: '3 températures', fit: 'cover' },
-    { src: 'assets/liva/apres.webp', alt: 'Résultat', fit: 'cover' },
-    { src: 'assets/liva/brosse-main.png', alt: 'En main', fit: 'cover' },
-    { src: 'assets/liva/sans-fil.webp', alt: 'Sans fil', fit: 'cover' },
-    { src: 'assets/liva/ceramique-mch.webp', alt: 'Céramique MCH', fit: 'cover' }
+    { src: 'assets/liva/ceramique-mch.webp', alt: 'Technologie MCH', fit: 'cover' },
+    { src: 'assets/liva/design-sans-fil.webp', alt: 'Design sans fil', fit: 'cover' },
+    { src: 'assets/liva/ugc-brossage.png', alt: 'Utilisation Liva', fit: 'cover' },
+    { src: 'assets/liva/infographie-ar.png', alt: 'Benefices darija', fit: 'contain' },
+    { src: 'assets/liva/temperatures.webp', alt: '3 temperatures', fit: 'cover' }
   ];
 
   // Avis d'exemple : à remplacer par de vrais avis clients
