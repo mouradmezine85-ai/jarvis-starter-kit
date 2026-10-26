@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Liva - Brosse lissante chauffante sans fil | Cheveux lisses en 5 minutes</title>
+<meta name="description" content="Brosse lissante chauffante sans fil Liva : cheveux lisses en 5 minutes, 160 à 200°C. Livraison 58 wilayas, paiement à la livraison. Commandez maintenant.">
+<!-- PIXEL META : coller ici le code fbq('init', 'XXXXXXXX') -->
+<!-- GOOGLE ANALYTICS 4 : coller ici la balise gtag.js (G-XXXXXXXXXX) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;family=Tajawal:wght@500;700;800&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:#0A0A0A;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#D6127F;text-decoration:none}
+a:hover{color:#0A0A0A}
+input,select,textarea,button{font-family:inherit}
+</style>
+</helmet>
+
+<div style="font-family:'DM Sans',system-ui,sans-serif;color:#0A0A0A;background:#fff;overflow-x:clip">
+
+<!-- HEADER -->
+<header style="position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #EFE7EC">
+  <div style="max-width:1280px;margin:0 auto;height:64px;padding:0 clamp(12px,3vw,32px);display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+    <button onClick="{{ openMenu }}" aria-label="Menu" style="justify-self:start;width:44px;height:44px;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 10px">
+      <span style="display:block;height:2px;background:#0A0A0A;border-radius:2px"></span>
+      <span style="display:block;height:2px;background:#0A0A0A;border-radius:2px"></span>
+      <span style="display:block;height:2px;background:#0A0A0A;border-radius:2px"></span>
+    </button>
+    <a href="#" aria-label="Liva, accueil" style="display:block">
+      <img src="assets/liva/logo-liva.png" alt="Liva" style="width:52px;height:52px;display:block">
+    </a>
+    <a href="#commander" aria-label="Panier" style="justify-self:end;position:relative;width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:#0A0A0A">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"></path><path d="M9 7V6a3 3 0 0 1 6 0v1"></path></svg>
+      <span style="position:absolute;top:4px;right:2px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#D6127F;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center">{{ qty }}</span>
+    </a>
+  </div>
+</header>
+
+<!-- MENU BURGER -->
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeMenu }}" style="position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.5)"></div>
+  <nav style="position:fixed;top:0;left:0;bottom:0;z-index:61;width:min(86vw,340px);background:#fff;padding:20px 24px;display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <img src="assets/liva/logo-liva.png" alt="Liva" style="width:48px;height:48px;display:block">
+      <button onClick="{{ closeMenu }}" aria-label="Fermer" style="width:44px;height:44px;border:0;background:none;font-size:26px;cursor:pointer;color:#0A0A0A">×</button>
+    </div>
+    <a href="#avantages" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid #F1ECEF;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">Avantages</a>
+    <a href="#avant-apres" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid #F1ECEF;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">Avant / Après</a>
+    <a href="#commander" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid #F1ECEF;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">Commander</a>
+    <a href="#avis" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid #F1ECEF;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">Avis clients</a>
+    <a href="#faq" onClick="{{ closeMenu }}" style="padding:14px 0;border-bottom:1px solid #F1ECEF;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">FAQ</a>
+    <a href="#contact" onClick="{{ closeMenu }}" style="padding:14px 0;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:20px">Contact</a>
+  </nav>
+</sc-if>
+
+<!-- 1. HERO -->
+<section data-screen-label="01 Hero" style="background:#fff;min-height:calc(100svh - 64px);display:flex;align-items:center;padding:clamp(20px,4vw,56px) clamp(16px,4vw,48px)">
+  <div style="max-width:1200px;margin:0 auto;width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:clamp(24px,5vw,72px)">
+    <div style="flex:1 1 360px;min-width:0;position:relative;display:flex;justify-content:center">
+      <span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-46%);width:min(88%,460px);aspect-ratio:1/1;border-radius:50%;background:#FBE6F1;display:block"></span>
+      <img src="assets/liva/packshot.webp" alt="Brosse lissante chauffante sans fil Liva" style="position:relative;width:min(100%,400px);height:auto;display:block">
+      <span style="position:absolute;left:0;top:8%;background:#0A0A0A;color:#fff;font-weight:700;font-size:13px;letter-spacing:.04em;padding:9px 14px;border-radius:999px">Offre duo : 2 pour {{ p2 }}</span>
+    </div>
+    <div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px">
+      <h1 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-.035em;text-wrap:balance">Des cheveux lisses en 5 minutes, sans fer à lisser.</h1>
+      <p style="margin:0;font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#4A4148;max-width:44ch;text-wrap:pretty">La brosse lissante chauffante sans fil Liva lisse et coiffe en un seul geste, à la maison, au travail ou en voyage.</p>
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap">
+        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(34px,3.4vw,46px);letter-spacing:-.03em;color:#D6127F">{{ p1 }}</span>
+        <sc-if value="{{ hasBarre }}" hint-placeholder-val="{{ false }}"><s style="font-size:20px;color:#8A7F87">{{ pBarre }}</s></sc-if>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#commander" style="flex:1 1 220px;display:flex;align-items:center;justify-content:center;height:60px;padding:0 28px;border-radius:999px;background:#D6127F;color:#fff;font-weight:700;font-size:17px;box-shadow:0 12px 32px rgba(214,18,127,.32);transition:transform .2s,background .2s" style-hover="transform:translateY(-2px);background:#B80E6C;color:#fff">Commander maintenant</a>
+        <a href="#avantages" style="flex:1 1 160px;display:flex;align-items:center;justify-content:center;height:60px;padding:0 28px;border-radius:999px;border:1.5px solid #0A0A0A;color:#0A0A0A;font-weight:600;font-size:17px;transition:background .2s,color .2s" style-hover="background:#0A0A0A;color:#fff">Découvrir</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#4A4148">
+        <span style="display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6127F" stroke-width="2.4"><path d="M5 12.5 10 17 19 7"></path></svg>Livraison 48h en Algérie</span>
+        <span style="display:flex;align-items:center;gap:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D6127F" stroke-width="2.4"><path d="M5 12.5 10 17 19 7"></path></svg>Paiement à la livraison</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1b. GALERIE PHOTOS PRODUIT -->
+<section data-screen-label="01b Galerie" style="background:#F8F3F6;padding:clamp(40px,6vw,80px) clamp(16px,4vw,48px)">
+  <div style="max-width:1280px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,220px),1fr));gap:16px">
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+        <img src="assets/liva/packshot.webp" alt="Brosse Liva vue de face" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block">
+      </div>
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
+        <img src="assets/liva/ceramique-mch.webp" alt="Ceramique MCH chaleur uniforme Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
+        <img src="assets/liva/design-sans-fil.webp" alt="Design sans fil Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
+        <img src="assets/liva/ugc-brossage.png" alt="Utilisation brosse Liva" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
+        <img src="assets/liva/infographie-ar.png" alt="Benefices Liva en darija" loading="lazy" style="width:100%;height:100%;object-fit:contain;display:block">
+      </div>
+      <div style="aspect-ratio:1/1;background:#fff;border-radius:16px;overflow:hidden">
+        <img src="assets/liva/temperatures.webp" alt="3 temperatures 160 180 200 degres" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. CHIFFRES CLES (remplace "Vu dans") -->
+<section data-screen-label="02 Chiffres clés" style="background:#fff;border-top:1px solid #EFE7EC;border-bottom:1px solid #EFE7EC;padding:0 clamp(16px,4vw,48px)">
+  <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(50%,180px),1fr))">
+    <div style="padding:22px 12px;display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em">160 à 200°C</span><span style="font-size:14px;color:#5E5560">3 températures</span></div>
+    <div style="padding:22px 12px;display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em">5 min</span><span style="font-size:14px;color:#5E5560">pour un brushing</span></div>
+    <div style="padding:22px 12px;display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em">Sans fil</span><span style="font-size:14px;color:#5E5560">partout avec vous</span></div>
+    <div style="padding:22px 12px;display:flex;flex-direction:column;gap:2px;align-items:center;text-align:center"><span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.02em">58 wilayas</span><span style="font-size:14px;color:#5E5560">livrées</span></div>
+  </div>
+</section>
+
+<!-- 3. 6 BENEFICES -->
+<section id="avantages" data-screen-label="03 Avantages" style="padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px)">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(36px,5vw,56px)">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance">Pourquoi elles adoptent Liva</h2>
+      <p dir="rtl" lang="ar" style="margin:0;font-family:'Tajawal',sans-serif;font-weight:500;font-size:20px;color:#5E5560">علاش يختاروا Liva</p>
+    </div>
+    <div data-reveal="" style="display:grid;grid-template-columns:{{ benefitCols }};gap:16px;align-items:center">
+      <div style="display:grid;grid-template-columns:{{ benefitInner }};gap:12px;order:{{ orderSide }}">
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Lisses en 5 minutes, pas en 30</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">شعرك يولي ليس ف 5 دقايق، ماشي ف 30</span></div>
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Une chaleur adaptée à TES cheveux, pas une taille unique</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">سخانة على حساب شعرك نتي</span></div>
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Protège tes cheveux au lieu de les abîmer</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">تحمي شعرك بلاصة ما تخسرو</span></div>
+      </div>
+      <div style="order:{{ orderImg }};border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:#1A0F18">
+        <img src="assets/liva/design-sans-fil.webp" alt="Brosse Liva, design sans fil" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <div style="display:grid;grid-template-columns:{{ benefitInner }};gap:12px;order:{{ orderSide2 }}">
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Lisse ET démêle en même temps</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">تسمّط و تفكّ الشعر ف خطرة</span></div>
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Zéro brûlure, même près du cuir chevelu</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">ما تحرقش، حتى قريب من الراس</span></div>
+        <div style="background:#0A0A0A;color:#fff;border-radius:14px;padding:20px;min-height:104px;display:flex;flex-direction:column;justify-content:center;gap:6px"><span style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;line-height:1.2">Un résultat qui tient toute la journée</span><span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:15px;color:rgba(255,255,255,.7)">النتيجة تقعد معاك النهار كامل</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. AVANT / APRES -->
+<section id="avant-apres" data-screen-label="04 Avant Après" style="background:#F7F2F5;padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px)">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.02;letter-spacing:-.035em">La différence en 5 minutes</h2>
+      <p dir="rtl" lang="ar" style="margin:0;font-family:'Tajawal',sans-serif;font-weight:500;font-size:20px;color:#5E5560">الفرق ف 5 دقايق</p>
+    </div>
+    <div data-reveal="" style="display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(8px,2vw,24px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(16px,1.6vw,22px);letter-spacing:.08em">AVANT</span>
+        <div style="position:relative;width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#E9E2E6">
+          <img src="assets/liva/avant.jpg" alt="Cheveux avant utilisation de la brosse Liva" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:36px">
+        <span style="width:2px;height:48px;background-image:linear-gradient(#C9BCC4 50%,transparent 50%);background-size:2px 8px;display:block"></span>
+        <span style="width:clamp(40px,5vw,56px);height:clamp(40px,5vw,56px);border-radius:50%;background:#D6127F;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(214,18,127,.3)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </span>
+        <span style="width:2px;height:48px;background-image:linear-gradient(#C9BCC4 50%,transparent 50%);background-size:2px 8px;display:block"></span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(16px,1.6vw,22px);letter-spacing:.08em;color:#D6127F">APRÈS</span>
+        <div style="position:relative;width:100%;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#E9E2E6">
+          <img src="assets/liva/apres.webp" alt="Cheveux lisses après la brosse Liva" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRODUIT / COMMANDE -->
+<section id="commander" data-screen-label="06 Commander" style="background:#F7F2F5;padding:clamp(48px,8vw,110px) clamp(12px,4vw,48px)">
+  <div id="produit" style="max-width:1200px;margin:0 auto;background:#fff;border:1px solid #EAE0E6;border-radius:24px;padding:clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,4vw,56px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <div style="position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#fff;border:1px solid #F1EAEE">
+        <img src="{{ galMain }}" alt="Brosse lissante Liva" style="width:100%;height:100%;object-fit:{{ galFit }};display:block">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px">
+        <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="6">
+          <button onClick="{{ g.pick }}" aria-label="{{ g.alt }}" style="position:relative;aspect-ratio:1/1;border:1px solid #F1EAEE;padding:0;border-radius:10px;overflow:hidden;cursor:pointer;background:#fff">
+            <img src="{{ g.src }}" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
+            <sc-if value="{{ g.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:0;border:2.5px solid #D6127F;border-radius:10px"></span></sc-if>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <a href="#avis" style="display:flex;align-items:center;gap:8px;color:#0A0A0A;font-size:15px">
+        <span style="color:#FFB800;font-size:18px;letter-spacing:1px">★★★★★</span><span><strong>{{ avg }}/5</strong> ({{ count }} avis)</span>
+      </a>
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,44px);line-height:1.05;letter-spacing:-.03em">Brosse lissante chauffante sans fil Liva</h2>
+      <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:12px">
+        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(38px,4vw,52px);letter-spacing:-.03em;color:#D6127F">{{ total }}</span>
+        <sc-if value="{{ hasBarre }}" hint-placeholder-val="{{ false }}"><s style="font-size:20px;color:#8A7F87">{{ pBarreTotal }}</s></sc-if>
+        <span style="background:#D6127F;color:#fff;font-size:13px;font-weight:700;padding:6px 10px;border-radius:999px">Offre duo : 2 pour {{ p2 }}</span>
+      </div>
+      <sc-if value="{{ hasStock }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#B3123A">
+          <span style="width:10px;height:10px;border-radius:50%;background:#E11D48;display:block"></span>Plus que {{ stock }} unités en stock
+        </div>
+      </sc-if>
+
+      <div role="radiogroup" aria-label="Quantité" style="display:flex;flex-direction:column;gap:12px">
+        <sc-for list="{{ bundles }}" as="b" hint-placeholder-count="2">
+          <button type="button" role="radio" aria-checked="{{ b.activeStr }}" onClick="{{ b.pick }}" style="position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:18px;border-radius:14px;border:2px solid #E6DCE2;background:#fff;cursor:pointer;color:#0A0A0A">
+            <sc-if value="{{ b.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-2px;border:2px solid #D6127F;border-radius:14px;background:rgba(214,18,127,.04);pointer-events:none"></span></sc-if>
+            <span style="width:22px;height:22px;border-radius:50%;border:2px solid #C9BCC4;display:flex;align-items:center;justify-content:center;flex:none">
+              <sc-if value="{{ b.active }}" hint-placeholder-val="{{ false }}"><span style="width:12px;height:12px;border-radius:50%;background:#D6127F;display:block"></span></sc-if>
+            </span>
+            <span style="flex:1;display:flex;flex-direction:column;gap:2px">
+              <strong style="font-size:17px">{{ b.label }}</strong>
+              <span style="font-size:14px;color:#5E5560">{{ b.sub }}</span>
+            </span>
+            <strong style="font-family:'Outfit',sans-serif;font-size:20px;white-space:nowrap">{{ b.price }}</strong>
+            <sc-if value="{{ b.reco }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:-11px;right:14px;background:#0A0A0A;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;padding:4px 10px;border-radius:999px">RECOMMANDÉ</span></sc-if>
+          </button>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ notOrdered }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submitOrder }}" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+            <input required="" value="{{ fName }}" onChange="{{ setName }}" placeholder="Nom et prénom" autocomplete="name" style="height:54px;padding:0 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">
+            <input required="" type="tel" inputMode="tel" value="{{ fPhone }}" onChange="{{ setPhone }}" placeholder="Téléphone (05, 06, 07...)" autocomplete="tel" style="height:54px;padding:0 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px">
+            <select required="" value="{{ fWilaya }}" onChange="{{ setWilaya }}" style="height:54px;padding:0 14px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">{{ wilayaOptions }}</select>
+            <select required="" value="{{ fCommune }}" onChange="{{ setCommune }}" disabled="{{ noWilaya }}" style="height:54px;padding:0 14px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">{{ communeOptions }}</select>
+          </div>
+          <input required="" value="{{ fAddress }}" onChange="{{ setAddress }}" placeholder="Adresse (quartier, rue, n°)" autocomplete="street-address" style="width:100%;height:54px;padding:0 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">
+          <div style="display:none">
+          </div>
+          <div role="radiogroup" aria-label="Mode de livraison" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+            <sc-for list="{{ ships }}" as="sh" hint-placeholder-count="2">
+              <button type="button" role="radio" aria-checked="{{ sh.activeStr }}" onClick="{{ sh.pick }}" style="position:relative;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;border:1.5px solid #E0D5DC;background:#fff;cursor:pointer;color:#0A0A0A;text-align:left">
+                <sc-if value="{{ sh.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-1.5px;border:2px solid #D6127F;border-radius:12px;background:rgba(214,18,127,.04);pointer-events:none"></span></sc-if>
+                <span style="width:20px;height:20px;border-radius:50%;border:2px solid #C9BCC4;display:flex;align-items:center;justify-content:center;flex:none"><sc-if value="{{ sh.active }}" hint-placeholder-val="{{ false }}"><span style="width:10px;height:10px;border-radius:50%;background:#D6127F;display:block"></span></sc-if></span>
+                <span style="flex:1;font-size:15px;font-weight:600">{{ sh.label }}</span>
+                <strong style="font-size:15px;white-space:nowrap">{{ sh.fee }}</strong>
+              </button>
+            </sc-for>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:12px;background:#F7F2F5;font-size:15px">
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#5E5560">Produit</span><span>{{ subtotal }}</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><span style="color:#5E5560">Livraison</span><span>{{ shipLabel }}</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;padding-top:8px;border-top:1px solid #E6DCE2;font-weight:800;font-size:17px"><span>Total à payer à la livraison</span><span style="color:#D6127F">{{ grandTotal }}</span></div>
+          </div>
+          <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><div style="font-size:14px;font-weight:600;color:#B3123A">{{ err }}</div></sc-if>
+          <button type="submit" style="min-height:64px;padding:10px 20px;border:0;border-radius:999px;background:#D6127F;color:#fff;font-weight:800;font-size:18px;letter-spacing:.02em;cursor:pointer;box-shadow:0 12px 30px rgba(214,18,127,.32);transition:transform .2s,background .2s" style-hover="transform:translateY(-2px);background:#B80E6C">COMMANDER MAINTENANT - {{ grandTotal }}</button>
+        </form>
+      </sc-if>
+      <sc-if value="{{ ordered }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#0A0A0A;color:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px">
+          <strong style="font-family:'Outfit',sans-serif;font-size:22px">Merci {{ fName }}, commande reçue !</strong>
+          <span style="font-size:16px;line-height:1.5;color:rgba(255,255,255,.8)">On vous appelle au {{ fPhone }} pour confirmer. Vous payez {{ grandTotal }} à la livraison.</span>
+          <span dir="rtl" lang="ar" style="font-family:'Tajawal',sans-serif;font-size:16px;color:#FF7AC0">شكرا! راح نعيطولك باش نأكدو الطلبية</span>
+        </div>
+      </sc-if>
+            <ul style="list-style:none;margin:0;padding:18px 0 0;border-top:1px solid #F1EAEE;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;font-size:15px">
+        <li style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D6127F" stroke-width="1.8" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9.5h4.5L22 13v3h-8"></path><circle cx="6.5" cy="18" r="2"></circle><circle cx="17.5" cy="18" r="2"></circle></svg>Livraison 48h partout en Algérie</li>
+        <li style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D6127F" stroke-width="1.8" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"></rect><circle cx="12" cy="12" r="2.5"></circle></svg>Paiement à la livraison</li>
+        <li style="display:flex;align-items:center;gap:10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D6127F" stroke-width="1.8" stroke-linejoin="round"><path d="M4 13a8 8 0 0 1 16 0"></path><rect x="2.5" y="13" width="4" height="6" rx="1.5"></rect><rect x="17.5" y="13" width="4" height="6" rx="1.5"></rect></svg>Service client 7j/7</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 7. UTILISATION -->
+<section data-screen-label="07 Utilisation" style="background:#0A0A0A;color:#fff;padding:clamp(72px,10vw,130px) clamp(16px,4vw,48px);position:relative;overflow:hidden">
+  <span style="position:absolute;top:-20%;right:-10%;width:60vw;max-width:720px;aspect-ratio:1/1;border-radius:50%;background:radial-gradient(circle,rgba(214,18,127,.22),transparent 65%);pointer-events:none"></span>
+  <div style="position:relative;max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(40px,5vw,64px)">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#FF7AC0">3 étapes, 5 minutes</span>
+        <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(36px,5vw,64px);line-height:1;letter-spacing:-.035em">Comment ça marche</h2>
+      </div>
+      <p dir="rtl" lang="ar" style="margin:0;font-family:'Tajawal',sans-serif;font-weight:500;font-size:22px;color:rgba(255,255,255,.7)">كيفاش تستعمليها</p>
+    </div>
+    <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(36px,3vw,28px)">
+      <article style="position:relative;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:44px;border-radius:50%;background:#D6127F;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;flex:none;box-shadow:0 0 0 6px #0A0A0A,0 0 0 7px rgba(214,18,127,.45)">01</span>
+          <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(214,18,127,.6),rgba(255,255,255,.08))"></span>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#1A1218">
+          <img src="assets/liva/temperatures.webp" alt="Choix de la température" style="width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,.85) 100%);pointer-events:none"></span>
+          <span style="position:absolute;right:16px;bottom:-14px;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(88px,9vw,128px);line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);pointer-events:none">01</span>
+          <span dir="rtl" lang="ar" style="position:absolute;left:18px;bottom:18px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:17px;color:#fff;background:rgba(214,18,127,.9);padding:6px 12px;border-radius:999px">اختاري الحرارة</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-right:12px">
+          <h3 style="margin:0;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(22px,2vw,26px);letter-spacing:-.02em;color:#fff">Choisissez la température</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72);text-wrap:pretty">160°C pour cheveux fins, 180°C pour cheveux normaux, 200°C pour cheveux difficiles.</p>
+        </div>
+      </article>
+      <article style="position:relative;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:44px;border-radius:50%;background:#D6127F;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;flex:none;box-shadow:0 0 0 6px #0A0A0A,0 0 0 7px rgba(214,18,127,.45)">02</span>
+          <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(214,18,127,.6),rgba(255,255,255,.08))"></span>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#1A1218">
+          <img src="assets/liva/brossage.jpg" alt="Brossage mèche par mèche avec Liva" style="width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,.85) 100%);pointer-events:none"></span>
+          <span style="position:absolute;right:16px;bottom:-14px;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(88px,9vw,128px);line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);pointer-events:none">02</span>
+          <span dir="rtl" lang="ar" style="position:absolute;left:18px;bottom:18px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:17px;color:#fff;background:rgba(214,18,127,.9);padding:6px 12px;border-radius:999px">مشطي خصلة بخصلة</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-right:12px">
+          <h3 style="margin:0;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(22px,2vw,26px);letter-spacing:-.02em;color:#fff">Brossez mèche par mèche</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72);text-wrap:pretty">Sur cheveux secs, de la racine vers les pointes. La céramique MCH répartit la chaleur sans tirer.</p>
+        </div>
+      </article>
+      <article style="position:relative;display:flex;flex-direction:column;gap:22px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span style="width:44px;height:44px;border-radius:50%;background:#D6127F;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:16px;flex:none;box-shadow:0 0 0 6px #0A0A0A,0 0 0 7px rgba(214,18,127,.45)">03</span>
+          <span style="flex:1;height:1px;background:linear-gradient(90deg,rgba(214,18,127,.6),rgba(255,255,255,.08))"></span>
+        </div>
+        <div style="position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#1A1218">
+          <img src="assets/liva/packshot.webp" alt="Brosse Liva sans fil, partout avec vous" style="width:100%;height:100%;object-fit:cover;display:block">
+          <span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,10,.85) 100%);pointer-events:none"></span>
+          <span style="position:absolute;right:16px;bottom:-14px;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(88px,9vw,128px);line-height:1;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);pointer-events:none">03</span>
+          <span dir="rtl" lang="ar" style="position:absolute;left:18px;bottom:18px;font-family:'Tajawal',sans-serif;font-weight:700;font-size:17px;color:#fff;background:rgba(214,18,127,.9);padding:6px 12px;border-radius:999px">ديها معاك وين ما رحتي</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-right:12px">
+          <h3 style="margin:0;font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(22px,2vw,26px);letter-spacing:-.02em;color:#fff">Emportez-la partout</h3>
+          <p style="margin:0;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72);text-wrap:pretty">Sans fil, elle tient dans un sac pour les retouches au travail ou en voyage.</p>
+        </div>
+      </article>
+    </div>
+    <div data-reveal="" style="display:flex;justify-content:center">
+      <a href="#commander" style="display:flex;align-items:center;justify-content:center;height:60px;padding:0 36px;border-radius:999px;background:#D6127F;color:#fff;font-weight:700;font-size:17px;box-shadow:0 12px 32px rgba(214,18,127,.4);transition:transform .2s,background .2s" style-hover="transform:translateY(-2px);background:#B80E6C;color:#fff">Je commande ma brosse</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. AVIS CLIENTS -->
+<section id="avis" data-screen-label="08 Avis" style="background:#F7F2F5;padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px)">
+  <div style="max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:28px">
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px">
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.02;letter-spacing:-.035em">Ce qu'en disent nos clientes</h2>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #EAE0E6;border-radius:14px;padding:12px 18px">
+        <span style="font-family:'Outfit',sans-serif;font-weight:800;font-size:30px">{{ avg }}</span>
+        <div style="display:flex;flex-direction:column;gap:2px"><span style="color:#FFB800;font-size:16px;letter-spacing:1px">★★★★★</span><span style="font-size:13px;color:#5E5560">{{ count }} avis</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <sc-for list="{{ filters }}" as="f" hint-placeholder-count="3">
+        <button onClick="{{ f.pick }}" style="position:relative;height:44px;padding:0 18px;border-radius:999px;border:1.5px solid #D9CDD4;background:#fff;color:#0A0A0A;font-size:15px;font-weight:600;cursor:pointer">
+          <sc-if value="{{ f.active }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;inset:-1.5px;border-radius:999px;background:#0A0A0A"></span></sc-if>
+          <span style="position:relative;color:{{ f.color }}">{{ f.label }}</span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:14px;align-items:start">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="9">
+        <article style="background:#fff;border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px">
+          <sc-if value="{{ r.hasImg }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:#F2ECF0;margin:-8px 0 0">
+              <img src="{{ r.img }}" alt="Photo envoyée par {{ r.n }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+            </div>
+          </sc-if>
+          <div style="display:flex;align-items:center;gap:12px">
+            <span style="width:42px;height:42px;border-radius:50%;background:#FCE4F1;color:#D6127F;display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:800;font-size:17px;flex:none">{{ r.initial }}</span>
+            <div style="flex:1;display:flex;flex-direction:column;gap:2px;min-width:0">
+              <strong style="font-size:15px">{{ r.n }}</strong>
+              <span style="display:flex;align-items:center;gap:5px;font-size:13px;color:#128C4B"><svg width="14" height="14" viewBox="0 0 24 24" fill="#128C4B"><path d="M12 2 9.6 4.2 6.4 4l-.6 3.2L3 9l1.4 3L3 15l2.8 1.8.6 3.2 3.2-.2L12 22l2.4-2.2 3.2.2.6-3.2L21 15l-1.4-3L21 9l-2.8-1.8-.6-3.2-3.2.2z"></path><path d="m8.5 12 2.4 2.4 4.6-4.8" stroke="#fff" stroke-width="2" fill="none"></path></svg>Achat vérifié · {{ r.v }}</span>
+            </div>
+          </div>
+          <div style="font-size:17px;letter-spacing:2px;line-height:1"><span style="color:#FFB800">{{ r.on }}</span><span style="color:#E2DADF">{{ r.off }}</span></div>
+          <p style="margin:0;font-size:16px;line-height:1.5;text-wrap:pretty">{{ r.t }}</p>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 9. FAQ -->
+<section id="faq" data-screen-label="09 FAQ" style="padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px)">
+  <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center">
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(32px,4.4vw,56px);line-height:1.02;letter-spacing:-.035em">Vos questions</h2>
+      <p dir="rtl" lang="ar" style="margin:0;font-family:'Tajawal',sans-serif;font-weight:500;font-size:20px;color:#5E5560">أسئلتكم</p>
+    </div>
+    <div style="display:flex;flex-direction:column;border-top:1px solid #E6DCE2">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="7">
+        <div style="border-bottom:1px solid #E6DCE2">
+          <button onClick="{{ q.toggle }}" aria-expanded="{{ q.openStr }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;color:#0A0A0A;font-family:'Outfit',sans-serif;font-weight:600;font-size:clamp(17px,1.6vw,20px)">
+            <span>{{ q.q }}</span>
+            <span style="flex:none;width:34px;height:34px;border-radius:50%;background:#F7F2F5;display:flex;align-items:center;justify-content:center;font-size:20px;color:#D6127F">{{ q.sign }}</span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 48px 24px 0;font-size:16px;line-height:1.6;color:#4A4148">{{ q.a }}</p></sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- 10. CONTACT -->
+<section id="contact" data-screen-label="10 Contact" style="background:#fff;border-top:1px solid #EFE7EC;padding:clamp(64px,9vw,120px) clamp(16px,4vw,48px)">
+  <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center">
+    <div data-reveal="" style="display:flex;flex-direction:column;align-items:center;gap:12px">
+      <h2 style="margin:0;font-family:'Outfit',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,58px);line-height:1;letter-spacing:-.035em">Une question ?</h2>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#4A4148;max-width:46ch">Écrivez-nous via le formulaire, on vous répond rapidement.</p>
+    </div>
+    <div style="width:100%;background:#F7F2F5;border-radius:20px;padding:clamp(18px,3vw,32px);text-align:left">
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submitContact }}" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px">
+            <input required="" value="{{ cName }}" onChange="{{ setCName }}" placeholder="Nom" autocomplete="name" style="height:54px;padding:0 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">
+            <input required="" type="email" value="{{ cEmail }}" onChange="{{ setCEmail }}" placeholder="Email" autocomplete="email" style="height:54px;padding:0 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;outline:none;background:#fff;color:#0A0A0A" style-focus="border-color:#D6127F">
+          </div>
+          <textarea required="" rows="5" value="{{ cMsg }}" onChange="{{ setCMsg }}" placeholder="Votre message" style="padding:14px 16px;border:1.5px solid #E0D5DC;border-radius:12px;font-size:16px;line-height:1.5;outline:none;background:#fff;color:#0A0A0A;resize:vertical" style-focus="border-color:#D6127F"></textarea>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:4px">
+            <button type="submit" style="flex:1 1 100%;height:58px;border:0;border-radius:999px;background:#D6127F;color:#fff;font-weight:700;font-size:17px;cursor:pointer;transition:background .2s" style-hover="background:#B80E6C">Envoyer le message</button>
+                      </div>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:12px;font-size:17px;line-height:1.5;text-align:center">Merci, votre message est bien envoyé. On vous répond très vite.</div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;price1&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:3900,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offre&quot;,&quot;unit&quot;:&quot;DA&quot;},&quot;price2&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:7500,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offre&quot;,&quot;unit&quot;:&quot;DA&quot;},&quot;priceBarre&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offre&quot;,&quot;unit&quot;:&quot;DA&quot;},&quot;stock&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:0,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Offre&quot;},&quot;email&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;contact@liva.dz&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;phone&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;05XX XX XX XX&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;horaires&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Samedi au jeudi, 9h à 18h&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Contact&quot;},&quot;orderEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Commandes&quot;}}">
+class Component extends DCLogic {
+  state = { wide: typeof window !== 'undefined' ? window.innerWidth >= 900 : true, menu: false, qty: 2, img: 0, filter: 'all', faq: 0, f: { name: '', phone: '', wilaya: '', commune: '', address: '' }, ship: 'domicile', geo: null, err: '', ordered: false, c: { name: '', email: '', msg: '' }, sent: false };
+
+  imgs = [
+    { src: 'assets/liva/packshot.webp', alt: 'Brosse Liva', fit: 'contain' },
+    { src: 'assets/liva/temperatures.webp', alt: '3 températures', fit: 'cover' },
+    { src: 'assets/liva/apres.webp', alt: 'Résultat', fit: 'cover' },
+    { src: 'assets/liva/brosse-main.png', alt: 'En main', fit: 'cover' },
+    { src: 'assets/liva/sans-fil.webp', alt: 'Sans fil', fit: 'cover' },
+    { src: 'assets/liva/ceramique-mch.webp', alt: 'Céramique MCH', fit: 'cover' }
+  ];
+
+  // Avis d'exemple : à remplacer par de vrais avis clients
+  revs = [
+    { n: 'Amina B.', v: 'Alger', s: 5, t: "Mes cheveux sont lisses en quelques minutes, je ne sors plus mon lisseur." },
+    { n: 'Sara K.', v: 'Oran', s: 5, t: "Très pratique le matin avant le travail. Elle chauffe vite." },
+    { n: 'Lina M.', v: 'Tizi Ouzou', s: 4, t: "Bon résultat sur cheveux épais à 200°C. Livraison rapide." },
+    { n: 'Meriem H.', v: 'Constantine', s: 5, t: "Sans fil, je la mets dans mon sac. Je l'adore." },
+    { n: 'Yasmine D.', v: 'Blida', s: 5, t: "Elle ne tire pas les cheveux, ma fille l'utilise aussi." },
+    { n: 'Nadia R.', v: 'Sétif', s: 4, t: "Simple à utiliser, résultat naturel. J'ai pris l'offre duo pour ma sœur." },
+    { n: 'Rania T.', v: 'Béjaïa', s: 5, t: "Payé à la livraison, aucun souci. Produit conforme aux photos." },
+    { n: 'Imane S.', v: 'Annaba', s: 5, t: "Mes frisottis ont disparu, brushing propre en 5 minutes." },
+    { n: 'Kenza A.', v: 'Tlemcen', s: 4, t: "Très bien pour les retouches. Autonomie correcte." }
+  ];
+
+  faqData = [
+    ['Combien de temps dure la livraison ?', "48h en moyenne dans les grandes villes, jusqu'à 5 jours pour les wilayas éloignées. Livraison dans les 58 wilayas."],
+    ['Comment je paie ?', 'Vous payez à la livraison, en espèces, quand vous recevez votre colis.'],
+    ['Elle convient à quels cheveux ?', 'Tous types : 160°C pour cheveux fins, 180°C pour cheveux normaux, 200°C pour cheveux épais ou frisés.'],
+    ['Combien de temps dure la batterie ?', "Assez pour plusieurs brushings complets. Elle se recharge en USB."],
+    ['Est-ce que ça abîme les cheveux ?', 'La céramique MCH répartit la chaleur de façon uniforme et évite les points trop chauds. Utilisez-la sur cheveux secs.'],
+    ['Comment confirmer ma commande ?', "Après le formulaire, on vous appelle pour confirmer l'adresse et la date de livraison."]
+  ];
+
+  wilayas = ['Adrar','Chlef','Laghouat','Oum El Bouaghi','Batna','Béjaïa','Biskra','Béchar','Blida','Bouira','Tamanrasset','Tébessa','Tlemcen','Tiaret','Tizi Ouzou','Alger','Djelfa','Jijel','Sétif','Saïda','Skikda','Sidi Bel Abbès','Annaba','Guelma','Constantine','Médéa','Mostaganem',"M'Sila",'Mascara','Ouargla','Oran','El Bayadh','Illizi','Bordj Bou Arréridj','Boumerdès','El Tarf','Tindouf','Tissemsilt','El Oued','Khenchela','Souk Ahras','Tipaza','Mila','Aïn Defla','Naâma','Aïn Témouchent','Ghardaïa','Relizane','Timimoun','Bordj Badji Mokhtar','Ouled Djellal','Béni Abbès','In Salah','In Guezzam','Touggourt','Djanet',"El M'Ghair",'El Meniaa'];
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(min-width: 900px)');
+    this.onMq = () => this.setState({ wide: this.mq.matches });
+    this.mq.addEventListener('change', this.onMq);
+    fetch('assets/liva/algerie-communes.json').then(r => r.json()).then(geo => this.setState({ geo })).catch(() => {});
+    this.vidTimer = setInterval(() => {
+      document.querySelectorAll('video[data-loop-video]').forEach(v => {
+        v.muted = true; v.loop = true; v.playsInline = true;
+        if (v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      });
+    }, 800);
+    window.addEventListener('resize', this.onMq);
+    this.onMq();
+    if ('IntersectionObserver' in window) {
+      this.io = new IntersectionObserver(es => es.forEach(en => {
+        if (!en.isIntersecting) return;
+        this.io.unobserve(en.target);
+        en.target.style.opacity = '';
+        en.target.animate([{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }], { duration: 700, easing: 'cubic-bezier(.2,.7,.2,1)' });
+      }), { threshold: 0.12 });
+      document.querySelectorAll('[data-reveal]').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) return;
+        el.style.opacity = '0';
+        this.io.observe(el);
+      });
+    }
+  }
+  componentWillUnmount() {
+    this.mq && this.mq.removeEventListener('change', this.onMq);
+    window.removeEventListener('resize', this.onMq);
+    this.io && this.io.disconnect();
+    clearInterval(this.vidTimer);
+  }
+
+  fmt(n) { return n.toLocaleString('fr-FR').replace(/ | /g, ' ') + ' DA'; }
+  stars(s) { return { on: '★★★★★'.slice(0, s), off: '★★★★★'.slice(s) }; }
+
+  async submitOrder(e) {
+    e.preventDefault();
+    const f = this.state.f;
+    const ph = f.phone.replace(/\D/g, '');
+    if (!/^0[5-7]\d{8}$/.test(ph)) return this.setState({ err: 'Numéro invalide : 10 chiffres commençant par 05, 06 ou 07.' });
+    if (!f.wilaya) return this.setState({ err: 'Choisissez votre wilaya.' });
+    if (!f.commune) return this.setState({ err: 'Choisissez votre commune.' });
+    // Redirection vers checkout Shopify avec le produit et les coordonnees pre-remplies
+    const SHOP = 'i4fkf5-au.myshopify.com';
+    const VARIANT_ID = '57906567414140';
+    const qty = this.state.qty;
+    const livraison = this.state.ship === 'desk' ? 'Stop desk' : 'Domicile';
+    const nameParts = f.name.trim().split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+    const params = new URLSearchParams();
+    params.set('checkout[shipping_address][first_name]', firstName);
+    params.set('checkout[shipping_address][last_name]', lastName);
+    params.set('checkout[shipping_address][phone]', '+213' + ph.replace(/^0/, ''));
+    params.set('checkout[shipping_address][address1]', f.address);
+    params.set('checkout[shipping_address][address2]', f.commune);
+    params.set('checkout[shipping_address][city]', f.wilaya);
+    params.set('checkout[shipping_address][country]', 'Algeria');
+    params.set('attributes[Wilaya]', f.wilaya);
+    params.set('attributes[Commune]', f.commune);
+    params.set('attributes[Mode de livraison]', livraison);
+    params.set('attributes[Telephone]', ph);
+    const url = 'https://' + SHOP + '/cart/' + VARIANT_ID + ':' + qty + '?' + params.toString();
+    // PIXEL META : fbq('track', 'InitiateCheckout', { value: this.price(qty), currency: 'DZD' });
+    window.location.href = url;
+  }
+
+  shipFee() {
+    const { geo, f, ship } = this.state;
+    if (!geo || !f.wilaya) return null;
+    const t = geo.tarifs[parseInt(f.wilaya, 10)];
+    return t ? (ship === 'desk' ? t[1] : t[0]) : null;
+  }
+
+  price(q) {
+    const p1 = this.props.price1 ?? 3900, p2 = this.props.price2 ?? 7500;
+    return q === 2 ? p2 : p1;
+  }
+
+  renderVals() {
+    const s = this.state, wide = s.wide;
+    const p1 = this.props.price1 ?? 3900, p2 = this.props.price2 ?? 7500;
+    const barre = this.props.priceBarre ?? 0;
+    const stock = this.props.stock ?? 0;
+    const email = this.props.email ?? 'contact@liva.dz';
+    const phone = this.props.phone ?? '05XX XX XX XX';
+    const avgN = this.revs.reduce((a, r) => a + r.s, 0) / this.revs.length;
+    const setF = k => e => this.setState({ f: { ...this.state.f, [k]: e.target.value }, err: '' });
+    const setC = k => e => this.setState({ c: { ...this.state.c, [k]: e.target.value } });
+    const filtered = this.revs.filter(r => s.filter === 'all' || r.s === s.filter);
+    const filterDefs = [['all', 'Tous'], [5, '5 étoiles'], [4, '4 étoiles']];
+    return {
+      qty: s.qty,
+      menuOpen: s.menu,
+      openMenu: () => this.setState({ menu: true }),
+      closeMenu: () => this.setState({ menu: false }),
+      p1: this.fmt(p1), p2: this.fmt(p2),
+      hasBarre: barre > 0, pBarre: this.fmt(barre), pBarreTotal: this.fmt(barre * s.qty),
+      benefitCols: wide ? 'minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr)' : 'minmax(0,1fr)',
+      benefitInner: 'minmax(0,1fr)',
+      orderSide: wide ? 0 : 1, orderImg: wide ? 1 : 0, orderSide2: wide ? 2 : 2,
+      featured: this.revs.slice(0, 3).map((r, i) => ({ ...r, ...this.stars(r.s), slot: 'liva-feat-' + (i + 1), h: 'Achat vérifié' })),
+      galMain: this.imgs[s.img].src, galFit: this.imgs[s.img].fit,
+      gallery: this.imgs.map((g, i) => ({ ...g, active: i === s.img, pick: () => this.setState({ img: i }) })),
+      avg: avgN.toFixed(1).replace('.', ','), count: this.revs.length,
+      total: this.fmt(this.price(s.qty)),
+      subtotal: this.fmt(this.price(s.qty)),
+      shipLabel: this.shipFee() == null ? 'Choisissez votre wilaya' : this.fmt(this.shipFee()),
+      grandTotal: this.fmt(this.price(s.qty) + (this.shipFee() || 0)),
+      ships: [['domicile', 'À domicile', 0], ['desk', 'Stop desk (bureau)', 1]].map(([k, l, i]) => {
+        const t = s.geo && s.f.wilaya ? s.geo.tarifs[parseInt(s.f.wilaya, 10)] : null;
+        return { label: l, fee: t ? this.fmt(t[i]) : '', active: s.ship === k, activeStr: String(s.ship === k), pick: () => this.setState({ ship: k }) };
+      }),
+      hasStock: stock > 0, stock,
+      bundles: [
+        { q: 1, label: '1 brosse', sub: 'Livraison 58 wilayas', price: this.fmt(p1) },
+        { q: 2, label: '2 brosses', sub: 'Vous économisez ' + this.fmt(p1 * 2 - p2), price: this.fmt(p2), reco: true }
+      ].map(b => ({ ...b, reco: !!b.reco, active: s.qty === b.q, activeStr: String(s.qty === b.q), pick: () => this.setState({ qty: b.q }) })),
+      notOrdered: !s.ordered, ordered: s.ordered,
+      submitOrder: e => this.submitOrder(e),
+      fName: s.f.name, fPhone: s.f.phone, fWilaya: s.f.wilaya, fAddress: s.f.address,
+      setName: setF('name'), setPhone: setF('phone'), setWilaya: e => this.setState({ f: { ...this.state.f, wilaya: e.target.value, commune: '' }, err: '' }),
+      setCommune: setF('commune'), fCommune: s.f.commune, noWilaya: !s.f.wilaya, setAddress: setF('address'),
+      wilayaOptions: [React.createElement('option', { key: 'x', value: '', disabled: true }, 'Wilaya')].concat((s.geo ? s.geo.wilayas : []).map(([c, n, ar]) => React.createElement('option', { key: c, value: String(c).padStart(2, '0') + ' - ' + n }, String(c).padStart(2, '0') + ' - ' + n + ' / ' + ar))),
+      communeOptions: [React.createElement('option', { key: 'x', value: '', disabled: true }, s.f.wilaya ? 'Commune' : "Commune (choisissez d'abord la wilaya)")].concat((s.geo && s.f.wilaya ? (s.geo.communes[parseInt(s.f.wilaya, 10)] || []) : []).map(n => React.createElement('option', { key: n, value: n }, n))),
+      hasErr: !!s.err, err: s.err,
+      filters: filterDefs.map(([k, l]) => ({ label: l, active: s.filter === k, color: s.filter === k ? '#fff' : '#0A0A0A', pick: () => this.setState({ filter: k }) })),
+      reviews: filtered.map(r => { return { ...r, ...this.stars(r.s), initial: r.n[0], hasImg: false, img: '' }; }),
+      faqs: this.faqData.map(([q, a], i) => ({ q, a, open: s.faq === i, openStr: String(s.faq === i), sign: s.faq === i ? '−' : '+', toggle: () => this.setState({ faq: s.faq === i ? null : i }) })),
+      notSent: !s.sent, sent: s.sent,
+      cName: s.c.name, cEmail: s.c.email, cMsg: s.c.msg,
+      setCName: setC('name'), setCEmail: setC('email'), setCMsg: setC('msg'),
+      submitContact: e => {
+        e.preventDefault();
+        const c = this.state.c;
+        window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('Question de ' + c.name) + '&body=' + encodeURIComponent(c.msg + '\n\n' + c.name + ' - ' + c.email);
+        this.setState({ sent: true });
+      },
+      email, mailto: 'mailto:' + email,
+      phone, tel: 'tel:+213' + phone.replace(/\D/g, '').replace(/^0/, ''),
+      horaires: this.props.horaires ?? 'Samedi au jeudi, 9h à 18h'
+    };
+  }
+}
+</script>
+</body>
+</html>
